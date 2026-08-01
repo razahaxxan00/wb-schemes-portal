@@ -1,0 +1,4 @@
+# Netlify & Cloudflare Pages Redirects / Clean URL rules
+/schemes/ /schemes/index.html 200
+/categories/ /categories/index.html 200
+/about/ /about/index.html 200
