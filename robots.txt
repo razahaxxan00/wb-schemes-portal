@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wbschemes.in/sitemap.xml
+Sitemap: https://wb-schemes-portal-three.vercel.app/sitemap.xml
