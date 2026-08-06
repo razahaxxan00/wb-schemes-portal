@@ -1,6 +1,26 @@
 // main.js - Interactive functionality & SEO Enhancements for West Bengal Schemes Portal
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Hamburger Menu Handler
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mainNav = document.querySelector('.main-nav');
+
+  if (mobileMenuBtn && mainNav) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mainNav.contains(e.target)) {
+        mainNav.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      }
+    });
+  }
+  
   // 1. FAQ Accordion Functionality
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(question => {
