@@ -1,8 +1,19 @@
-[build]
-  publish = "."
+[[redirects]]
+  from = "https://www.wbschemes.in/*"
+  to = "https://wbschemes.in/:splat"
+  status = 301
+  force = true
 
-[build.processing]
-  skip_processing = false
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
-[build.processing.html]
-  pretty_urls = true
+[[headers]]
+  for = "/*"
+    [headers.values]
+      Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+      X-Content-Type-Options = "nosniff"
+      X-Frame-Options = "SAMEORIGIN"
+      X-XSS-Protection = "1; mode=block"
+      Referrer-Policy = "strict-origin-when-cross-origin"

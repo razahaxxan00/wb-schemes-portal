@@ -1,4 +1,7 @@
-# Netlify & Cloudflare Pages Redirects / Clean URL rules
-/schemes/ /schemes/index.html 200
-/categories/ /categories/index.html 200
-/about/ /about/index.html 200
+# Redirect HTTP to HTTPS & Non-WWW Canonical Domain
+http://wbschemes.in/* https://wbschemes.in/:splat 301!
+https://www.wbschemes.in/* https://wbschemes.in/:splat 301!
+http://www.wbschemes.in/* https://wbschemes.in/:splat 301!
+
+# 404 Fallback
+/* /404.html 404

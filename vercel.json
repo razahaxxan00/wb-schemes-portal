@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": true,
+  "redirects": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "www.wbschemes.in" }], "destination": "https://wbschemes.in/$1", "permanent": true }
+  ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }

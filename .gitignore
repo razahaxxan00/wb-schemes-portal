@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+*.log
+audit_fix_log.json
+verification_evidence.json
+a_tag_audit_report.json
