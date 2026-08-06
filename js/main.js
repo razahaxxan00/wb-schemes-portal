@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const a = document.createElement('a');
         a.href = `#${heading.id}`;
         a.className = 'toc-link';
+        a.className = 'toc-link';
         a.textContent = `${idx + 1}. ${heading.textContent.replace(/^[\d.\s]+/, '')}`;
         li.appendChild(a);
         tocList.appendChild(li);
