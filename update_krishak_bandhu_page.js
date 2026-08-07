@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const targetFile = path.join(__dirname, 'schemes', 'krishak-bandhu', 'index.html');
+
+const pageHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -491,4 +496,7 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(targetFile, pageHtml, 'utf8');
+console.log('Successfully updated /schemes/krishak-bandhu/index.html');
