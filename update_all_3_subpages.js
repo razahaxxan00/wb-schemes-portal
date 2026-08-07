@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+const page4Path = path.join(rootDir, 'schemes', 'krishak-bandhu', 'beneficiary-list', 'index.html');
+const oldWordCountPage4 = 389;
+
+const page4Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +27,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/krishak-bandhu/beneficiary-list/">
+  <link rel="canonical" href="${domain}/schemes/krishak-bandhu/beneficiary-list/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Krishak Bandhu Beneficiary List 2026 — Check Online by GP">
   <meta property="og:description" content="How to check the Krishak Bandhu beneficiary list online by Gram Panchayat or Voter ID, and what to do if your name is missing from the list.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/krishak-bandhu/beneficiary-list/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/krishak-bandhu/beneficiary-list/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Krishak Bandhu Beneficiary List 2026 — Check Online by GP">
@@ -175,8 +192,6 @@
             </p>
             <p>
               The beneficiary database is maintained electronically within the Integrated Financial Management System (IFMS) to prevent duplicate applications across adjacent Gram Panchayats.
-
-Every entry on the beneficiary schedule undergoes systematic three-tier verification before final inclusion: initial field authentication by Krishi Technology Sahayaks (KTS), document scrutiny by the Assistant Director of Agriculture (ADA), and treasury queue authorization by the Block Development Officer (BDO). This ensures that genuine landowning farmers, sharecroppers (Bhagchasi), and Patta holders receive their direct cash assistance transparently.
             </p>
           </section>
 
@@ -201,7 +216,7 @@ Every entry on the beneficiary schedule undergoes systematic three-tier verifica
               Printed master beneficiary registers are also verified annually by the District Magistrate's office before approving the district-wide annual financial allocation under the Krishak Bandhu (Natun) budget.
             </p>
             <p>
-              You can print or download the Gram Panchayat beneficiary schedule directly from the portal for your personal documentation, or request a certified copy from your local Panchayat Pradhan during official office hours.
+              You can print or download the Gram Panchayat beneficiary schedule directly from the portal for your personal documentation.
             </p>
           </section>
 
@@ -224,7 +239,7 @@ Every entry on the beneficiary schedule undergoes systematic three-tier verifica
               In agricultural blocks with large populations of registered Bhagchasi (sharecroppers), names are categorized separately under Raiyat (landowners) and Barga (sharecroppers) tabs for ease of administrative auditing.
             </p>
             <p>
-              For municipal or semi-urban village areas bordering municipal corporations, select the adjacent block authority where your agricultural land plot is officially registered in land records, as urban local bodies do not maintain separate agricultural beneficiary schedules.
+              For municipal or semi-urban village areas bordering municipal corporations, select the adjacent block authority where your agricultural land plot is officially registered in land records.
             </p>
           </section>
 
@@ -265,8 +280,6 @@ Every entry on the beneficiary schedule undergoes systematic three-tier verifica
             </p>
             <p>
               Combining both tools gives you a full picture of your enrolment: the beneficiary list verifies your official standing in the state database, while the status check tracks every Direct Benefit Transfer (DBT) credit into your bank account.
-
-Farmers are advised to check the beneficiary list at the start of each agricultural season (Kharif in May–June and Rabi in November–December) to ensure their record remains active following periodic departmental audits and land mutation updates across West Bengal.
             </p>
           </section>
 
@@ -497,4 +510,8 @@ Farmers are advised to check the beneficiary list at the start of each agricultu
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page4Path, page4Html, 'utf8');
+const newWordCountPage4 = getArticleWordCount(page4Path);
+console.log(`Page 4 Final Word Count: ${newWordCountPage4} words`);
