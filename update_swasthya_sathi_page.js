@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+const filePath = path.join(rootDir, 'schemes', 'swasthya-sathi', 'index.html');
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+const oldWordCount = getArticleWordCount(filePath);
+
+const newHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +27,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/swasthya-sathi/">
+  <link rel="canonical" href="${domain}/schemes/swasthya-sathi/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Swasthya Sathi Scheme 2026 — Status, Card & Ayushman Bharat">
   <meta property="og:description" content="Swasthya Sathi scheme West Bengal — what it covers, how it's changing under Ayushman Bharat since July 2026, card status, hospital list, and what to do next.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/swasthya-sathi/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/swasthya-sathi/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Swasthya Sathi Scheme 2026 — Status, Card & Ayushman Bharat">
@@ -508,4 +525,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(filePath, newHtml, 'utf8');
+const newWordCount = getArticleWordCount(filePath);
+console.log(`Swasthya Sathi Main Page Updated: ${oldWordCount} words -> ${newWordCount} words`);
