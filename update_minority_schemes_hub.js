@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 40: /schemes/minority-schemes/index.html
+// -------------------------------------------------------------------------
+const page40Path = path.join(rootDir, 'schemes', 'minority-schemes', 'index.html');
+const oldWordCountPage40 = getArticleWordCount(page40Path);
+
+const page40Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/minority-schemes/">
+  <link rel="canonical" href="${domain}/schemes/minority-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Minority Welfare Schemes West Bengal 2026 — Full List">
   <meta property="og:description" content="All West Bengal government schemes for minority communities — Aikyashree Scholarship, self-employment loans, education loans, and hostel support.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/minority-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/minority-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Minority Welfare Schemes West Bengal 2026 — Full List">
@@ -31,7 +51,7 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Which communities are considered "minority" under West Bengal's welfare schemes?",
+        "name": "Which communities are considered \"minority\" under West Bengal's welfare schemes?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Muslim, Christian, Sikh, Buddhist, Jain, and Parsi communities are recognised as notified minorities for the purposes of these state schemes."
@@ -382,30 +402,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>WBMDFC Micro-Finance Direct Lending to Minority Women SHGs</h2>
-  <p>
-    In addition to individual term loans, WBMDFC provides micro-credit to women belonging to notified minority communities:
-  </p>
-  <ul>
-    <li><strong>Direct Group Credit (up to ₹30,000 per member):</strong> Minority Self-Help Groups (SHGs) registered under Anandadhara / NRLM receive direct micro-finance loans at a 3% annual interest rate to support tailoring, handicraft, and food processing micro-units.</li>
-    <li><strong>Simplified Group Guarantee:</strong> Requires no individual collateral; loans are disbursed to the SHG bank account based on group solidarity and repayment history.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Haj House Infrastructure and Cultural Welfare Initiatives</h2>
-  <p>
-    The Minority Affairs and Madrasah Education Department oversees dedicated cultural and pilgrimage infrastructure across West Bengal:
-  </p>
-  <ul>
-    <li><strong>State Haj Committee & Transit Infrastructure:</strong> Operates modern Haj Houses at Rajarhat, Kolkata, providing free lodging, visa processing desks, medical check-ups, and transit support for pilgrims.</li>
-    <li><strong>Aliah University Academic Empowerment:</strong> Supports higher research, technical education, and language studies through autonomous state minority universities.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -513,4 +510,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page40Path, page40Html, 'utf8');
+const newWordCountPage40 = getArticleWordCount(page40Path);
+console.log(`Page 40 Updated: ${oldWordCountPage40} words -> ${newWordCountPage40} words`);
