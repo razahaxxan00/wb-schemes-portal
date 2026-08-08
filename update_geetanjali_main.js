@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 27: /schemes/geetanjali-housing-scheme/index.html
+// -------------------------------------------------------------------------
+const page27Path = path.join(rootDir, 'schemes', 'geetanjali-housing-scheme', 'index.html');
+const oldWordCountPage27 = getArticleWordCount(page27Path);
+
+const page27Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/geetanjali-housing-scheme/">
+  <link rel="canonical" href="${domain}/schemes/geetanjali-housing-scheme/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Geetanjali Housing Scheme 2026 — Eligibility & How to Apply">
   <meta property="og:description" content="Geetanjali Housing Scheme guide — free/subsidised housing for homeless and EWS families in West Bengal. Eligibility, assistance amount & application.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/geetanjali-housing-scheme/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/geetanjali-housing-scheme/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Geetanjali Housing Scheme 2026 — Eligibility & How to Apply">
@@ -346,32 +366,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Multi-Departmental Rural Implementation Channels</h2>
-  <p>
-    A unique feature of the Geetanjali Housing Scheme is its decentralized implementation strategy across specialized state departments:
-  </p>
-  <ul>
-    <li><strong>Sundarban & Paschimanchal Affairs:</strong> Targeted housing construction grants tailored for vulnerable coastal and drought-prone western districts.</li>
-    <li><strong>Fisheries & Forest Departments:</strong> Dedicated housing allocations for recognized traditional fishermen and forest-dwelling tribal communities.</li>
-    <li><strong>Minority Affairs & Backward Classes Welfare:</strong> Direct unit quotas for EWS households from minority, SC, and ST demographic groups managed via District Welfare Officers.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Technical Inspection, Utilisation Certificates & Geo-Tagging</h2>
-  <p>
-    To ensure quality construction and prevent fund misuse, project disbursements are linked to strict physical milestones:
-  </p>
-  <ul>
-    <li><strong>Lintel & Plinth Level Verification:</strong> Block Assistant Engineers inspect house construction at plinth and lintel levels before authorizing second installment releases.</li>
-    <li><strong>Geo-Tagged Photographic Proof:</strong> Beneficiaries and block technical officers upload geo-tagged photos of the under-construction dwelling to the Housing Department portal.</li>
-    <li><strong>Utilisation Certificate (UC) Submission:</strong> Final payment releases require a formal UC signed by the applicant and certified by the Gram Panchayat Executive Assistant or Municipal Inspector.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -471,4 +466,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page27Path, page27Html, 'utf8');
+const newWordCountPage27 = getArticleWordCount(page27Path);
+console.log(`Page 27 Updated: ${oldWordCountPage27} words -> ${newWordCountPage27} words`);
