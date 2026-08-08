@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 37: /schemes/housing-schemes/index.html
+// -------------------------------------------------------------------------
+const page37Path = path.join(rootDir, 'schemes', 'housing-schemes', 'index.html');
+const oldWordCountPage37 = getArticleWordCount(page37Path);
+
+const page37Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/housing-schemes/">
+  <link rel="canonical" href="${domain}/schemes/housing-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Housing Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government housing schemes 2026 — Banglar Bari, Geetanjali & more. Eligibility, assistance amount & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/housing-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/housing-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Housing Schemes 2026 — Full List & Guide">
@@ -47,10 +67,10 @@
       },
       {
         "@type": "Question",
-        "name": "Is Banglar Bari still called "Banglar Bari" in 2026?",
+        "name": "Is Banglar Bari still called \"Banglar Bari\" in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It may not be for much longer — following the 2026 change in state government, several sources describe the scheme as transitioning toward alignment with the central PMAY-G scheme, sometimes referred to as "PM Awas West Bengal." Check your district's official portal for the current name and status."
+          "text": "It may not be for much longer — following the 2026 change in state government, several sources describe the scheme as transitioning toward alignment with the central PMAY-G scheme, sometimes referred to as \"PM Awas West Bengal.\" Check your district's official portal for the current name and status."
         }
       },
       {
@@ -353,80 +373,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Housing Construction Milestone Instalment Tranches</h2>
-  <p>
-    Financial assistance under both Banglar Bari Prakalpa and Geetanjali Housing Scheme is disbursed in structured milestone tranches to guarantee genuine home construction:
-  </p>
-  <ul>
-    <li><strong>First Instalment (Foundation Stage):</strong> ₹60,000 released upon administrative sanction and ground layout approval by Gram Panchayat / Block engineers.</li>
-    <li><strong>Second Instalment (Lintel / Roof Level Stage):</strong> ₹50,000 credited after physical inspection and geotagged photograph upload showing completed wall masonry and roof shuttering.</li>
-    <li><strong>Final Instalment (Completion & Sanitation Stage):</strong> Remaining ₹10,000 to ₹20,000 released upon completion of doors, windows, external plastering, and an integrated twin-pit sanitary latrine.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Special Housing Provisions for Climate-Vulnerable Regions</h2>
-  <p>
-    Recognizing ecological and disaster risks across West Bengal, state housing programs incorporate localized construction adaptations:
-  </p>
-  <ul>
-    <li><strong>Sundarbans & Coastal Cyclone Belts:</strong> Raised plinth foundations and reinforced concrete pillar specifications protect homes from tidal surges and saline flooding.</li>
-    <li><strong>Paschimanchal & Forest Fringe Zones:</strong> Specialized EWS housing grants cover disaster-resistant roof tiles and elephant-conflict safety barriers in Jhargram, Purulia, and Bankura districts.</li>
-    <li><strong>Urban Slum Redevelopment:</strong> Landless urban families receive apartment allotment rights under municipal group housing projects administered by urban local bodies (ULBs).</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>District Housing Cell Sanctions and AwaasSoft Tracking</h2>
-  <p>
-    Verification and fund release for housing grants are coordinated between district magistrate housing cells and digital reporting servers:
-  </p>
-  <ul>
-    <li><strong>Geotagged Mobile Inspection (AwaasApp):</strong> Panchayat technical assistants capture time-stamped mobile photos at each construction stage (Plinth, Lintel, Completed) for audit compliance.</li>
-    <li><strong>Direct Treasury Disbursement:</strong> Financial grants are transferred directly into Aadhaar-seeded single savings accounts via IFMS electronic treasury clearing.</li>
-    <li><strong>Public Inquiry & Grievance Counters:</strong> Beneficiaries facing instalment holds can track their house status using survey IDs at BDO housing desks or District Magistrate offices.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Convergence with MGNREGA Unskilled Labor Wages</h2>
-  <p>
-    Rural housing beneficiaries under Banglar Bari and Geetanjali receive additional financial benefits through labor convergence with MGNREGA (100 Days Work scheme):
-  </p>
-  <ul>
-    <li><strong>90 to 95 Mandays of Wage Support:</strong> Beneficiaries or eligible household members working on their own house construction earn 90 to 95 mandays of unskilled labor wages (worth approximately ₹22,000 to ₹25,000 extra) credited directly to their job card bank accounts.</li>
-    <li><strong>SBM-G Household Toilet Incentive:</strong> An additional ₹12,000 grant is provided under Swachh Bharat Mission (Gramin) for constructing an attached pour-flush toilet.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Integration with Basic Utilities (Electricity & LPG Connections)</h2>
-  <p>
-    Completed pucca houses are integrated with basic household infrastructure before final clearance certification:
-  </p>
-  <ul>
-    <li><strong>Saubhagya Household Electricity Connection:</strong> Power utility companies provide free single-phase electricity connections and digital meters to newly constructed Banglar Bari homes.</li>
-    <li><strong>Clean Cooking Energy Support:</strong> Beneficiaries are linked with liquid petroleum gas (LPG) distribution agencies for free initial stove and cylinder setups under clean fuel initiatives.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Long-Term Impact on Rural Housing Security and Community Living</h2>
-  <p>
-    By replacing vulnerable kutcha mud huts with permanent concrete pucca dwellings, West Bengal's housing programs significantly enhance family safety, disaster resilience, and health outcomes. Secure housing ownership, issued preferably in the name of female heads of household or jointly with spouses, promotes gender equity, economic stability, and long-term socio-economic dignity across rural panchayats and urban municipalities alike.
-  </p>
-</section>
-
-
-<p>
-  Accessing state housing assistance empowers vulnerable families to build lasting assets, providing protection against seasonal monsoons and fostering sustainable rural development.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -534,4 +481,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page37Path, page37Html, 'utf8');
+const newWordCountPage37 = getArticleWordCount(page37Path);
+console.log(`Page 37 Updated: ${oldWordCountPage37} words -> ${newWordCountPage37} words`);
