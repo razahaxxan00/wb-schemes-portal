@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 39: /schemes/employment-schemes/index.html
+// -------------------------------------------------------------------------
+const page39Path = path.join(rootDir, 'schemes', 'employment-schemes', 'index.html');
+const oldWordCountPage39 = getArticleWordCount(page39Path);
+
+const page39Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/employment-schemes/">
+  <link rel="canonical" href="${domain}/schemes/employment-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Employment Schemes 2026 — Full List & Update">
   <meta property="og:description" content="Complete guide to West Bengal government employment schemes 2026 — Utkarsh Bangla skill training and the youth unemployment allowance update.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/employment-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/employment-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Employment Schemes 2026 — Full List & Update">
@@ -357,71 +377,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>National Skill Qualification Framework (NSQF) Certification Standards</h2>
-  <p>
-    Vocational training under Utkarsh Bangla adheres strictly to National Skill Qualification Framework (NSQF) levels 3 through 6:
-  </p>
-  <ul>
-    <li><strong>Government-Recognized Skill Certificates:</strong> Trainees completing assessment evaluations receive joint certification from PBSSD and NCVET (National Council for Vocational Education and Training).</li>
-    <li><strong>Corporate Recruiter Partnerships:</strong> Over 1,200 empanelled industrial units, IT parks, retail chains, and healthcare groups conduct direct campus interviews at ITIs and Polytechnic institutes.</li>
-    <li><strong>Free Uniforms, Course Materials, and Daily Stipends:</strong> Enrolled candidates, particularly female students from Kanyashree institutions, receive free learning kits and daily attendance stipends.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Karma Sathi Prakalpa — Self-Employment Loans for Youth</h2>
-  <p>
-    For unemployed youth seeking to establish micro-enterprises or small businesses rather than wage jobs:
-  </p>
-  <ul>
-    <li><strong>Subsidized Loans up to ₹2 Lakh:</strong> Scheme provides soft loans up to ₹2,00,000 for manufacturing, trading, or service enterprises with 15% state capital subsidy (up to ₹25,000).</li>
-    <li><strong>Co-Operative & Commercial Bank Tie-ups:</strong> Applications are processed through the Co-operation Department and state-run banks with interest subsidy assistance.</li>
-    <li><strong>Target Group:</strong> Open to unemployed youth aged 18 to 50 who have passed Class 8 or above, managed via <code>karmasathi.wb.gov.in</code>.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>West Bengal Apprenticeship Scheme (WBAS) Stipend Subsidies</h2>
-  <p>
-    To incentivize private MSMEs and industrial units to hire local youth as apprentices:
-  </p>
-  <ul>
-    <li><strong>50% State Stipend Re-imbursement:</strong> Government reimburses 50% of the prescribed monthly apprenticeship stipend (up to ₹4,500/month per apprentice) to registered employers.</li>
-    <li><strong>On-the-Job Industrial Exposure:</strong> Graduates and diploma holders gain 12 to 24 months of practical shop-floor training across manufacturing plants and technology hubs.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Rojgar Seva Portal and District Job Fairs (Rojgar Melas)</h2>
-  <p>
-    Job matching and employment linkages are facilitated across the state through dedicated labor exchange infrastructure:
-  </p>
-  <ul>
-    <li><strong>Digital Employment Exchange (Rojgar Seva):</strong> Job seekers register their academic credentials, technical trade certificates, and work experience on the state portal (<code>employmentbankwb.gov.in</code>).</li>
-    <li><strong>District Rojgar Melas:</strong> District Employment Exchanges organize quarterly job fairs connecting local employers, hospitality groups, and IT firms directly with registered youth.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Soft Skills and Digital Literacy Finishing Schools</h2>
-  <p>
-    To boost candidate interview performance in competitive job markets, PBSSD integrates soft skills training into core trade modules:
-  </p>
-  <ul>
-    <li><strong>Spoken English & Communication Skills:</strong> Mandatory 40-hour communication and interpersonal training for all technical course participants.</li>
-    <li><strong>Basic Digital Literacy:</strong> Fundamental computer operations, web navigation, and office software usage integrated across all vocational trades.</li>
-  </ul>
-</section>
-
-
-<p>
-  Integrating skill training, financial self-employment credits, and monthly income allowances creates a robust workforce ecosystem, supporting youth empowerment across West Bengal.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -529,4 +485,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page39Path, page39Html, 'utf8');
+const newWordCountPage39 = getArticleWordCount(page39Path);
+console.log(`Page 39 Updated: ${oldWordCountPage39} words -> ${newWordCountPage39} words`);
