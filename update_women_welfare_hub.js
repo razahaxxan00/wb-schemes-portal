@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 32: /schemes/women-welfare/index.html
+// -------------------------------------------------------------------------
+const page32Path = path.join(rootDir, 'schemes', 'women-welfare', 'index.html');
+const oldWordCountPage32 = getArticleWordCount(page32Path);
+
+const page32Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/women-welfare/">
+  <link rel="canonical" href="${domain}/schemes/women-welfare/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Women Welfare Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government schemes for women 2026 — Kanyashree, Lakshmir Bhandar, Rupashree & more. Eligibility & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/women-welfare/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/women-welfare/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Women Welfare Schemes 2026 — Full List & Guide">
@@ -327,68 +347,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Life-Cycle Financial Security Framework for Women</h2>
-  <p>
-    The Government of West Bengal structures women's welfare through a continuous, life-stage financial protection continuum:
-  </p>
-  <ul>
-    <li><strong>Adolescent Support (Ages 13–18):</strong> Annual K1 stipends (₹1,000) and free Sabooj Sathi bicycles remove transport and financial barriers, ensuring girls complete secondary education.</li>
-    <li><strong>Transition to Adulthood (Age 18):</strong> One-time grants via Kanyashree K2 (₹25,000) and Rupashree Prakalpa (₹25,000) incentivize higher education or assist with marriage costs.</li>
-    <li><strong>Household Income Stability (Ages 25–60):</strong> Monthly direct benefit transfers under Lakshmir Bhandar / Annapurna Bhandar provide autonomous cash reserves for adult female heads of family.</li>
-    <li><strong>Elderly & Widow Security (Ages 60+ / Widowhood):</strong> Universal widow and old-age pensions under Jai Bangla assure long-term dignity and healthcare coverage via Swasthya Sathi e-cards.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Annapurna Bhandar Transition and e-KYC Verification Protocol</h2>
-  <p>
-    As state income support for women transitions to the Annapurna Bhandar model, existing Lakshmir Bhandar beneficiaries must follow these administrative instructions:
-  </p>
-  <ul>
-    <li><strong>Biometric e-KYC Authentication:</strong> Beneficiaries should complete biometric or Aadhaar OTP verification at local Gram Panchayat offices, Duare Sarkar camps, or Tathya Mitra Kendras.</li>
-    <li><strong>NPCI Bank Account Mapping:</strong> Ensure your receiving bank account is linked to Aadhaar and mapped on the National Payments Corporation of India (NPCI) portal to avoid credit failures.</li>
-    <li><strong>No Re-Application Required for Active Holders:</strong> Enrolled women with clean DBT payment histories are migrated automatically without needing to submit fresh paper forms.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Institutional Support Desks and Women Help Desks</h2>
-  <p>
-    Female applicants seeking guidance, document corrections, or payment status tracking can access assistance through dedicated state desks:
-  </p>
-  <ul>
-    <li><strong>Block Development Office (BDO) Welfare Cell:</strong> Every BDO office maintains a dedicated Women and Child Development counter for handling Rupashree, Kanyashree, and pension inquiries.</li>
-    <li><strong>Duare Sarkar Single-Window Counters:</strong> Mobile camps provide instant application submission, e-KYC verification, and grievance recording in local Gram Panchayats.</li>
-    <li><strong>State Toll-Free Women Helpline:</strong> Dial 1800-123-4567 or contact the Department of Women and Child Development (Nabanna) for direct assistance.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Self-Help Group (SHG) Integration under Anandadhara</h2>
-  <p>
-    Beyond direct cash transfers, female beneficiaries in West Bengal are encouraged to join Self-Help Groups under the Anandadhara (West Bengal State Rural Livelihoods Mission) programme. SHG membership opens access to micro-credit bank linkages, revolving funds, and vocational training in tailoring, food processing, and handicraft production.
-  </p>
-</section>
-
-<section class="content-block">
-  <h2>Higher Benefit Rates for SC and ST Women</h2>
-  <p>
-    Across major social welfare programs, the state government provides enhanced financial assistance to women belonging to Scheduled Caste (SC) and Scheduled Tribe (ST) communities. For example, under Lakshmir Bhandar, SC/ST women receive ₹1,200 monthly compared to ₹1,000 for general category recipients, while scholarship allocations under Shikshashree and Oasis guarantee 100% coverage for eligible SC/ST female applicants.
-  </p>
-</section>
-
-
-<section class="content-block">
-  <h2>Legal Protections and Equal Beneficiary Rights</h2>
-  <p>
-    All women-focused welfare initiatives in West Bengal strictly enforce non-discrimination guidelines based on caste, religion, or regional location. Direct Benefit Transfer (DBT) payments credited to single-operated bank accounts ensure that female beneficiaries retain full financial autonomy, supporting economic self-reliance, improved household nutritional security, and long-term socio-economic dignity across urban and rural communities alike.
-  </p>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -496,4 +455,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page32Path, page32Html, 'utf8');
+const newWordCountPage32 = getArticleWordCount(page32Path);
+console.log(`Page 32 Updated: ${oldWordCountPage32} words -> ${newWordCountPage32} words`);
