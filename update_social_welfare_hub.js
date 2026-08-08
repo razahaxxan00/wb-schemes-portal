@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 31: /schemes/social-welfare/index.html
+// -------------------------------------------------------------------------
+const page31Path = path.join(rootDir, 'schemes', 'social-welfare', 'index.html');
+const oldWordCountPage31 = getArticleWordCount(page31Path);
+
+const page31Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/social-welfare/">
+  <link rel="canonical" href="${domain}/schemes/social-welfare/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Social Welfare Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government social welfare schemes 2026 — pensions, food security, housing, and family support. Eligibility & apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/social-welfare/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/social-welfare/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Social Welfare Schemes 2026 — Full List & Guide">
@@ -357,42 +377,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>State Departments Administering Welfare Initiatives</h2>
-  <p>
-    Social security programs in West Bengal are planned and executed through specialized administrative departments working in coordination with district administrations:
-  </p>
-  <ul>
-    <li><strong>Department of Women and Child Development and Social Welfare:</strong> Oversees Lakshmir Bhandar, Kanyashree Prakalpa, Rupashree Prakalpa, and the Jai Bangla pension umbrella (including Manabik disability pension).</li>
-    <li><strong>Department of Agriculture & Agricultural Marketing:</strong> Manages Krishak Bandhu income assistance and state crop insurance via Bangla Shasya Bima.</li>
-    <li><strong>Department of Food and Supplies:</strong> Administers Khadya Sathi food grain distribution and e-ration card management via wbpds.gov.in.</li>
-    <li><strong>Panchayat and Rural Development (P&RD) Department:</strong> Implements rural housing under Banglar Bari Prakalpa, rural road connectivity, and MGNREGA asset creation.</li>
-    <li><strong>Backward Classes Welfare and Tribal Development Department:</strong> Manages OASIS pre-matric/post-matric scholarships, Shikshashree, and Medhashree stipends.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Statewide Grievance Redressal and Helpline Support</h2>
-  <p>
-    If you experience payment delays, application rejections, or document discrepancies while accessing state welfare benefits, utilize these official channels:
-  </p>
-  <ul>
-    <li><strong>CMO Public Grievance Portal (Nabanna):</strong> Submit written or digital complaints directly to the Chief Minister's Office public helpline desk for expedited resolution.</li>
-    <li><strong>Duare Sarkar Grievance Cells:</strong> Every seasonal Duare Sarkar camp features a dedicated Help Desk counter for logging status queries and resolving missing Aadhaar/bank account seeding issues.</li>
-    <li><strong>Toll-Free Helpline Services:</strong> Contact the statewide welfare helpline at 1800-123-4567 or visit your local Block Development Officer (BDO) for in-person administrative support.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Financial Literacy and Bank Account Seeding Mandates</h2>
-  <p>
-    To ensure seamless Direct Benefit Transfer (DBT) credit across all social welfare schemes, beneficiaries must link their active bank accounts with Aadhaar and ensure National Payments Corporation of India (NPCI) mapping at their bank branch. Single-operated savings accounts avoid payment rejections, guaranteeing uninterrupted monthly pension, scholarship, and cash incentive credits.
-  </p>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -500,4 +485,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page31Path, page31Html, 'utf8');
+const newWordCountPage31 = getArticleWordCount(page31Path);
+console.log(`Page 31 Updated: ${oldWordCountPage31} words -> ${newWordCountPage31} words`);
