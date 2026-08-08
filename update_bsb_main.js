@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 17: /schemes/bangla-shasya-bima/index.html
+// -------------------------------------------------------------------------
+const page17Path = path.join(rootDir, 'schemes', 'bangla-shasya-bima', 'index.html');
+const oldWordCountPage17 = getArticleWordCount(page17Path);
+
+const page17Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/bangla-shasya-bima/">
+  <link rel="canonical" href="${domain}/schemes/bangla-shasya-bima/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Bangla Shasya Bima Scheme 2026 — Free Crop Insurance, Claims">
   <meta property="og:description" content="Complete guide to Bangla Shasya Bima — West Bengal's zero-premium crop insurance scheme for farmers. Eligibility, coverage, claims & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/bangla-shasya-bima/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/bangla-shasya-bima/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bangla Shasya Bima Scheme 2026 — Free Crop Insurance, Claims">
@@ -375,32 +395,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Crop Cutting Experiments (CCE) and Area Yield Estimation</h2>
-  <p>
-    To determine accurate yield loss percentages across notified Gram Panchayats, the Department of Agriculture conducts structured Crop Cutting Experiments (CCE):
-  </p>
-  <ul>
-    <li><strong>Randomized Field Sampling:</strong> Officers from the Directorate of Agriculture select randomized 5m x 5m plots within notified Gram Panchayats to harvest and weigh crop samples.</li>
-    <li><strong>Threshold Yield Comparison:</strong> The harvested average yield per hectare is compared against the historical 5-year average (Threshold Yield) for that specific Mouza.</li>
-    <li><strong>Automated Loss Calculation:</strong> If the actual yield falls below the threshold yield, all enrolled farmers in that notified unit receive proportional claim compensation automatically without needing individual loss surveys.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Satellite Remote Sensing and Drone Surveys for Mid-Season Losses</h2>
-  <p>
-    Modern agricultural technology ensures rapid compensation release during widespread flood or cyclone emergencies:
-  </p>
-  <ul>
-    <li><strong>Normalized Difference Vegetation Index (NDVI):</strong> Satellite imagery provided by ISRO and RSAC assesses vegetation vigor loss immediately following natural calamities like cyclones Amphan or Remal.</li>
-    <li><strong>Drone Reconnaissance in High-Risk Zones:</strong> In flood-prone regions such as Ghatal, Sundarbans, and Murshidabad, high-resolution drone imagery provides micro-level flooding verification for fast-track claim settlement.</li>
-    <li><strong>Direct IFMS Payout Integration:</strong> Final claim settlements are uploaded to the Integrated Financial Management System (IFMS) for direct bank credit into Aadhaar-seeded accounts.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -500,4 +495,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page17Path, page17Html, 'utf8');
+const newWordCountPage17 = getArticleWordCount(page17Path);
+console.log(`Page 17 Updated: ${oldWordCountPage17} words -> ${newWordCountPage17} words`);
