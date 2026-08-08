@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 28: /schemes/oasis-scholarship/index.html
+// -------------------------------------------------------------------------
+const page28Path = path.join(rootDir, 'schemes', 'oasis-scholarship', 'index.html');
+const oldWordCountPage28 = getArticleWordCount(page28Path);
+
+const page28Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/oasis-scholarship/">
+  <link rel="canonical" href="${domain}/schemes/oasis-scholarship/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Oasis Scholarship West Bengal 2026 — SC/ST/OBC, Amount & Apply">
   <meta property="og:description" content="Oasis Scholarship guide — West Bengal's SC/ST/OBC scholarship for Class 9 to postgraduate students. Eligibility, income limits, amount & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/oasis-scholarship/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/oasis-scholarship/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Oasis Scholarship West Bengal 2026 — SC/ST/OBC, Amount & Apply">
@@ -466,4 +486,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page28Path, page28Html, 'utf8');
+const newWordCountPage28 = getArticleWordCount(page28Path);
+console.log(`Page 28 Updated: ${oldWordCountPage28} words -> ${newWordCountPage28} words`);
