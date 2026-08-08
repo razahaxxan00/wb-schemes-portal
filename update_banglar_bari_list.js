@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 12: /schemes/banglar-bari-prakalpa/beneficiary-list/index.html
+// -------------------------------------------------------------------------
+const page12Path = path.join(rootDir, 'schemes', 'banglar-bari-prakalpa', 'beneficiary-list', 'index.html');
+const oldWordCountPage12 = getArticleWordCount(page12Path);
+
+const page12Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/banglar-bari-prakalpa/beneficiary-list/">
+  <link rel="canonical" href="${domain}/schemes/banglar-bari-prakalpa/beneficiary-list/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Banglar Bari List 2026 — Check Beneficiary List by District">
   <meta property="og:description" content="How to check the Banglar Bari beneficiary list online — district and Gram Panchayat wise, eligible/ineligible status, and PDF download steps.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/banglar-bari-prakalpa/beneficiary-list/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/banglar-bari-prakalpa/beneficiary-list/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Banglar Bari List 2026 — Check Beneficiary List by District">
@@ -334,52 +354,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Gram Sabha Approval and Public Vetting Process</h2>
-  <p>
-    The publication of Banglar Bari beneficiary lists follows a strict multi-tier vetting protocol to maintain complete transparency:
-  </p>
-  <ul>
-    <li><strong>Gram Sabha Reading:</strong> Provisional wait lists are read out loud during open Gram Sabha meetings in each Gram Panchayat to allow community inspection and spot verification.</li>
-    <li><strong>Field Re-Verification by BDO Teams:</strong> Multi-member inquiry teams headed by Extension Officers visit households to confirm lack of a pucca house, land ownership, and family income status.</li>
-    <li><strong>District Level Approval Committee (DLAC):</strong> Final eligible lists are approved by the DLAC chaired by the District Magistrate prior to publishing PDF notices on district portals.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Step-by-Step Guide to PDF Search on District Portals</h2>
-  <p>
-    Since district housing lists are hosted as large Gram Panchayat-wise PDF documents, follow these search tips to locate your household record quickly:
-  </p>
-  <ul>
-    <li><strong>Use Exact Registration / Survey ID:</strong> Search using your 18-digit SECC survey ID or application reference number for 100% accurate matching.</li>
-    <li><strong>Search by Head of Family Name:</strong> If searching by name, try searching both in English and Bengali spelling variants as transcribed in local Panchayat rolls.</li>
-    <li><strong>Verify Father / Husband Name & Village Code:</strong> Always cross-check the listed father's or husband's name and JL number (Jurisdiction List number) to distinguish between similar names within the same Gram Panchayat.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Official Grievance Redressal and Inclusion Appeals</h2>
-  <p>
-    If your eligible household was omitted during field surveys or incorrectly marked under the Ineligible category, submit a formal appeal through these official channels:
-  </p>
-  <ul>
-    <li><strong>Written Objection at BDO Office:</strong> Submit a written representation addressed to the Block Development Officer along with self-attested photocopies of your Aadhaar, Ration Card, and land Parcha within 15 days of list publication.</li>
-    <li><strong>Duare Sarkar Grievance Desk:</strong> Register housing omission complaints at seasonal Duare Sarkar camps for priority field re-inspection.</li>
-    <li><strong>District Housing Cell Toll-Free Helpline:</strong> Contact your District Magistrate's office housing cell helpdesk for tracking the status of your submitted objection.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>AwaasSoft & Portal Synchronization</h2>
-  <p>
-    Beneficiary list updates and instalment release schedules are synchronized between district NIC web portals and the state AwaasSoft management system. Once your name moves from the Provisional Wait List to the Final Eligible List, your registered mobile number receives automated SMS notifications confirming installment sanction dates and physical house construction inspection milestones.
-  </p>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -479,4 +454,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page12Path, page12Html, 'utf8');
+const newWordCountPage12 = getArticleWordCount(page12Path);
+console.log(`Page 12 Updated: ${oldWordCountPage12} words -> ${newWordCountPage12} words`);
