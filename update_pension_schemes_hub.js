@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 36: /schemes/pension-schemes/index.html
+// -------------------------------------------------------------------------
+const page36Path = path.join(rootDir, 'schemes', 'pension-schemes', 'index.html');
+const oldWordCountPage36 = getArticleWordCount(page36Path);
+
+const page36Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/pension-schemes/">
+  <link rel="canonical" href="${domain}/schemes/pension-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Pension Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government pension schemes 2026 — Jai Bangla, Manabik Pension & sub-schemes. Eligibility, amount ₹1,000–1,500 & apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/pension-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/pension-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Pension Schemes 2026 — Full List & Guide">
@@ -367,75 +387,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>WBIFMS Direct Benefit Transfer Architecture and Payment Schedule</h2>
-  <p>
-    State pension disbursements across all 11 Jai Bangla categories are automated through the West Bengal Integrated Financial Management System (WBIFMS):
-  </p>
-  <ul>
-    <li><strong>Automated Monthly Clearing:</strong> Pension funds are generated electronically by the State Treasury on the 1st of every month and credited directly into Aadhaar-seeded savings accounts.</li>
-    <li><strong>Zero Banking Fees:</strong> Beneficiaries receive 100% of their sanctioned pension amount (₹1,000 or ₹1,500) without any bank processing fees or deduction charges.</li>
-    <li><strong>Real-Time SMS Alerts:</strong> Successful credits trigger automated SMS notifications to registered mobile numbers via the WBIFMS electronic gateway.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Annual Life Certificate Verification and Aadhaar-LGD Seeding</h2>
-  <p>
-    To prevent fraudulent claims and ensure continuous pension delivery, the Department of Women and Child Development requires periodic beneficiary verification:
-  </p>
-  <ul>
-    <li><strong>Aadhaar & Local Government Directory (LGD) Seeding:</strong> Beneficiary details are mapped against LGD village and municipal ward codes to verify genuine West Bengal residency.</li>
-    <li><strong>Life Certificate Verification:</strong> Elderly and disabled pensioners complete annual physical or digital life certificate (Jeevan Pramaan) verification at local Gram Panchayat offices or BDO desks during winter verification drives.</li>
-    <li><strong>Automatic De-Duplication:</strong> Database checks ensure no beneficiary receives dual pensions under both state (Jai Bangla) and central (IGNOAPS/IGNWPS) schemes simultaneously for the same entitlement category.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Grievance Redressal for Payment Failure or Bank Account Mismatch</h2>
-  <p>
-    If your monthly pension stops unexpectedly or fails to credit despite approval, follow these official grievance channels:
-  </p>
-  <ul>
-    <li><strong>BDO Office Pension Desk Submission:</strong> Submit an updated bank passbook copy, Aadhaar card, and Form P acknowledgment receipt to your local Block Development Officer for account re-linking.</li>
-    <li><strong>Duare Sarkar Camp Resolution:</strong> Seasonal Duare Sarkar camps feature specialized pension grievance desks to resolve NPCI mapping and account hold errors on the spot.</li>
-    <li><strong>Jai Bangla Portal Status Check:</strong> Track application progress or payment failure reasons online using your Beneficiary ID on the official portal.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Convergence with Swasthya Sathi Cashless Healthcare</h2>
-  <p>
-    All approved beneficiaries under the Jai Bangla pension platform — including senior citizens, widows, disabled persons, and unorganized sector workers — automatically qualify for cashless secondary and tertiary medical care under the state's Swasthya Sathi scheme:
-  </p>
-  <ul>
-    <li><strong>₹5 Lakh Annual Family Health Cover:</strong> Pensioners and their dependent family members receive up to ₹5,00,000 annual cashless coverage across government hospitals and empanelled private nursing homes.</li>
-    <li><strong>No Premium Cost for Pensioners:</strong> Healthcare coverage is fully subsidized by the West Bengal government, eliminating medical debt for low-income senior citizens.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Nominee Nomination and Arrears Claim Protocol</h2>
-  <p>
-    To protect the financial interests of pensioner families in the event of a beneficiary's death:
-  </p>
-  <ul>
-    <li><strong>Form P Nominee Designation:</strong> Applicants specify a legal nominee (spouse, son, or daughter) during initial Form P submission at the BDO office.</li>
-    <li><strong>Disbursement of Pending Arrears:</strong> If a pensioner passes away before receiving approved monthly instalments, accumulated arrears are credited directly to the registered nominee's bank account upon presenting a valid death certificate.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Long-Term Socio-Economic Impact of Universal Pension Security</h2>
-  <p>
-    By establishing a unified digital pension framework under Jai Bangla, West Bengal provides guaranteed monthly social security to over 82 lakh vulnerable citizens. Universal monthly Direct Benefit Transfer (DBT) credits ensure financial independence for elderly, disabled, and widowed residents, strengthening community welfare and reducing household economic vulnerability across all 23 districts.
-  </p>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -543,4 +495,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page36Path, page36Html, 'utf8');
+const newWordCountPage36 = getArticleWordCount(page36Path);
+console.log(`Page 36 Updated: ${oldWordCountPage36} words -> ${newWordCountPage36} words`);
