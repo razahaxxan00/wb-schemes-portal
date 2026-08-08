@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 13: /schemes/khadya-sathi/index.html
+// -------------------------------------------------------------------------
+const page13Path = path.join(rootDir, 'schemes', 'khadya-sathi', 'index.html');
+const oldWordCountPage13 = getArticleWordCount(page13Path);
+
+const page13Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/khadya-sathi/">
+  <link rel="canonical" href="${domain}/schemes/khadya-sathi/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Khadya Sathi Scheme 2026 – Digital Ration Card & Benefits">
   <meta property="og:description" content="Complete guide to Khadya Sathi, West Bengal's food security scheme — ration card categories, eligibility, benefits, and how to apply for your digital card.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/khadya-sathi/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/khadya-sathi/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Khadya Sathi Scheme 2026 – Digital Ration Card & Benefits">
@@ -169,8 +189,6 @@
             </p>
             <p>
               Managed by the Department of Food and Supplies, Government of West Bengal, the system is fully automated through electronic Point of Sale (ePOS) devices deployed across 20,000+ Fair Price Shops state-wide.
-
-The digital architecture guarantees that monthly allocations are reserved for individual cardholders until collected, preventing dealer diversion and maintaining a transparent paperless transaction ledger across all urban and rural local bodies.
             </p>
           </section>
 
@@ -247,9 +265,7 @@ The digital architecture guarantees that monthly allocations are reserved for in
               <li>Select your district, sub-division, block/municipality, and Gram Panchayat.</li>
               <li>Fill in household details and enter the Aadhaar numbers of all family members.</li>
               <li>Scan and upload clear PDF copies of your documents.</li>
-              <li>Submit your application and save the generated Form Application Number for tracking.
-
-Applicants can track their digital ration card approval status online at any time by selecting the "Check Application Status" link on food.wb.gov.in and entering their form type and 16-digit application number to view real-time processing milestones.</li>
+              <li>Submit your application and save the generated Form Application Number for tracking.</li>
             </ol>
             <p><strong>Offline Method:</strong></p>
             <ol>
@@ -482,4 +498,459 @@ Applicants can track their digital ration card approval status online at any tim
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page13Path, page13Html, 'utf8');
+const newWordCountPage13 = getArticleWordCount(page13Path);
+console.log(`Page 13 Updated: ${oldWordCountPage13} words -> ${newWordCountPage13} words`);
+
+
+// -------------------------------------------------------------------------
+// PAGE 14: /schemes/khadya-sathi/card-download/index.html
+// -------------------------------------------------------------------------
+const page14Path = path.join(rootDir, 'schemes', 'khadya-sathi', 'card-download', 'index.html');
+const oldWordCountPage14 = getArticleWordCount(page14Path);
+
+const page14Html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khadya Sathi E-Ration Card Download 2026 — Step by Step</title>
+  <meta name="description" content="How to download your Khadya Sathi digital ration card online at food.wb.gov.in, print it, and what to do if your details don't match.">
+  <meta name="keywords" content="khadya sathi card download, khadya sathi e ration card, how to download khadya sathi ration card, khadya sathi card download online, khadya sathi duplicate card">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="${domain}/schemes/khadya-sathi/card-download/">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="Khadya Sathi E-Ration Card Download 2026 — Step by Step">
+  <meta property="og:description" content="How to download your Khadya Sathi digital ration card online at food.wb.gov.in, print it, and what to do if your details don't match.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${domain}/schemes/khadya-sathi/card-download/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Khadya Sathi E-Ration Card Download 2026 — Step by Step">
+  <meta name="twitter:description" content="How to download your Khadya Sathi digital ration card online at food.wb.gov.in, print it, and what to do if your details don't match.">
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I download my Khadya Sathi digital ration card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Visit food.wb.gov.in or wbpds.gov.in, go to the Digital Ration Card / e-Ration Card Download section, and search using your RC number or Aadhaar number."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to print my card, or is the digital version enough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The digital version is enough — you can show it on your phone at your Fair Price Shop. A printed copy is just a convenient backup, not a requirement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my ration shop doesn't accept my digital card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This shouldn't normally happen, since the scheme is built around digital cards statewide — if a shop does have an issue, ask them to verify using their ePOS system with your Aadhaar directly, or report the issue to your local Food & Supplies office."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A family member is missing from my downloaded card — how do I fix this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Raise a correction request at your local Food & Supplies office with proof of the family relationship, such as a birth or marriage certificate — this isn't something you can fix by simply re-downloading."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My ration card shows as expired — can I still download it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You'll need to complete the renewal process first; an expired card generally won't generate a fresh valid digital copy until renewal is complete."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a fee to download my Khadya Sathi card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — downloading your digital ration card from the official portal is free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download the card for a family member separately?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The digital ration card covers the full household under one record; individual family members don't have separate downloadable cards, though all registered members will appear listed on the single household card."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <span>Independent Public Information Guide</span>
+        <span>West Bengal Welfare Schemes Directory 2026</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="brand-logo">
+          <div class="emblem-placeholder">WB</div>
+          <div class="brand-text"><span>West Bengal Schemes Portal</span>
+            <p>Public Guide for State Welfare Initiatives</p>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="main-nav">
+          <a href="/index.html" class="body-link">Home</a>
+          <a href="/schemes/index.html" class="active">All Schemes</a>
+          <a href="/categories/index.html" class="body-link">Categories</a>
+          <a href="/blog/index.html" class="body-link">Updates</a>
+          <a href="/about/index.html" class="body-link">About Us</a>
+          <a href="/contact/index.html" class="body-link">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a>
+        <span class="separator">/</span>
+        <a href="/schemes/index.html" class="breadcrumb-link">Schemes</a>
+        <span class="separator">/</span>
+        <a href="/schemes/khadya-sathi/index.html" class="breadcrumb-link">Khadya Sathi Scheme</a>
+        <span class="separator">/</span>
+        <span class="current">Card Download</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <main class="page-layout">
+    <div class="container">
+      <div class="page-grid">
+        
+        <!-- Main Column -->
+        <article class="main-content">
+          <a href="/schemes/khadya-sathi/index.html" class="back-link-btn">← Back to Khadya Sathi Overview</a>
+
+          <!-- Hero Banner -->
+          <div class="scheme-hero">
+            <span class="scheme-badge">Digital Ration Portal</span>
+            <h1>Khadya Sathi Card Download — Get Your Digital Ration Card Online (2026)</h1>
+            <div class="eeat-badge-container">
+              <span class="fact-checked-badge">Fact-Checked 2026</span>
+              <span>Fact-checked against official state notifications (food.wb.gov.in) • Editorial Review: August 2026</span>
+            </div>
+            <p class="intro-text">
+              Your <strong>khadya sathi card download</strong> gives you instant digital access to your official e-ration card PDF, allowing hassle-free free ration collection across West Bengal without needing a plastic or laminated card.
+            </p>
+          </div>
+
+          <!-- Section 1 — What You'll Need Before Downloading -->
+          <section class="content-block">
+            <h2>What You'll Need Before Downloading</h2>
+            <p>
+              Since Khadya Sathi cards are fully digital, downloading your e-ration card is a routine part of using the scheme, not just a one-time backup step. Before starting, ensure you have:
+            </p>
+            <ul>
+              <li><strong>Your Ration Card (RC) number</strong>, if you already have one, or your 12-digit Aadhaar number if you're looking it up without the RC number.</li>
+              <li><strong>Your registered mobile number</strong>, for OTP (One-Time Password) identity verification.</li>
+              <li>Access to a printer or smartphone storage to save the generated PDF file.</li>
+            </ul>
+            <p>
+              Before proceeding to download your card, review our main guide to <a href="/schemes/khadya-sathi/index.html" class="body-link">check eligibility & how to apply</a> for Khadya Sathi. For medical benefits linked to your digital identity, see our guide on <a href="/schemes/swasthya-sathi/index.html" class="body-link">Swasthya Sathi health coverage</a>.
+            </p>
+          </section>
+
+          <!-- Section 2 — How to Download Your Khadya Sathi Card Online -->
+          <section class="content-block">
+            <h2>How to Download Your Khadya Sathi Card Online</h2>
+            <p>Follow these step-by-step instructions to obtain your official e-ration card PDF:</p>
+            <ol>
+              <li>Visit the official West Bengal Food & Supplies portal: <a href="https://food.wb.gov.in" class="body-link" target="_blank" rel="noopener noreferrer">food.wb.gov.in</a> or wbpds.gov.in.</li>
+              <li>Navigate to the <strong>E-Citizen</strong> tab on the top menu bar.</li>
+              <li>Click on <strong>e-Ration Card</strong> and select <strong>Download e-Ration Card</strong>.</li>
+              <li>Select your category (AAY, PHH, SPHH, RKSY-I, or RKSY-II) and enter your Ration Card number or registered Aadhaar number.</li>
+              <li>Click on <strong>Download</strong>. If prompted for OTP verification, enter the code received on your registered mobile phone.</li>
+              <li>Your official e-Ration Card PDF will generate immediately, displaying a scannable QR code, family member names, Mouza details, and assigned Fair Price Shop address.</li>
+              <li>Save the PDF file on your device or print a paper copy for home storage.</li>
+            </ol>
+          </section>
+
+          <!-- Section 3 — Using the Card at Your Ration Shop -->
+          <section class="content-block">
+            <h2>Using the Card at Your Ration Shop</h2>
+            <p>
+              Once downloaded, you don't need to do anything further to "activate" the card for use — simply show it (digitally on your phone screen, or as a paper printout) at your designated Fair Price Shop when collecting your monthly free ration allotment.
+            </p>
+            <p>
+              The dealer scans the QR code or enters your RC number into their electronic Point of Sale (ePOS) terminal and requests biometric fingerprint authentication from any enrolled adult household member to release your free grain supply.
+            </p>
+          </section>
+
+          <!-- Section 4 — If Your Details Are Wrong or Your Card Isn't Found -->
+          <section class="content-block">
+            <h2>If Your Details Are Wrong or Your Card Isn't Found</h2>
+            <ul>
+              <li><strong>"No record found" when searching:</strong> Double-check you're entering your RC number or Aadhaar number correctly. If you're certain the details are right, it may mean your application hasn't finished processing yet, or there was an issue at registration — visit your local Food & Supplies office to confirm.</li>
+              <li><strong>Family member missing from the card:</strong> This typically needs a correction request through the portal or your local ration office, rather than a fresh application; bring proof of the family relationship (like a birth or marriage certificate) when raising this.</li>
+              <li><strong>Wrong category shown (e.g. RKSY-II instead of RKSY-I):</strong> Category reclassification is handled through an official correction form (Form 8 / Form 9) at your local Inspector of Food & Supplies office.</li>
+              <li><strong>Card shows as expired:</strong> You'll need to complete the online renewal process before a fresh digital card will generate.</li>
+            </ul>
+          </section>
+
+          <!-- Section 5 — Getting a Duplicate Card -->
+          <section class="content-block">
+            <h2>Getting a Duplicate Card</h2>
+            <p>
+              If you've lost track of your RC number or need a fresh copy for any reason, the "download" process itself effectively serves as your duplicate card — since there's no physical card to replace, you can simply look up and re-download your e-ration card as many times as needed once you have your RC number or Aadhaar number handy.
+            </p>
+            <p>
+              If you've genuinely lost your RC number and cannot retrieve it via Aadhaar lookup, your local Fair Price Shop dealer or Block Food & Supplies office can query their local master database using your family head's name to retrieve your record.
+            </p>
+          </section>
+
+          <!-- Section 6 — FAQs -->
+          <section class="content-block">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How do I download my Khadya Sathi digital ration card?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Visit food.wb.gov.in or wbpds.gov.in, go to the Digital Ration Card / e-Ration Card Download section, and search using your RC number or Aadhaar number.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Do I need to print my card, or is the digital version enough?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>The digital version is enough — you can show it on your phone at your Fair Price Shop. A printed copy is just a convenient backup, not a requirement.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>What if my ration shop doesn't accept my digital card?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>This shouldn't normally happen, since the scheme is built around digital cards statewide — if a shop does have an issue, ask them to verify using their ePOS system with your Aadhaar directly, or report the issue to your local Food & Supplies office.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>A family member is missing from my downloaded card — how do I fix this?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Raise a correction request at your local Food & Supplies office with proof of the family relationship, such as a birth or marriage certificate — this isn't something you can fix by simply re-downloading.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>My ration card shows as expired — can I still download it?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>You'll need to complete the renewal process first; an expired card generally won't generate a fresh valid digital copy until renewal is complete.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Is there a fee to download my Khadya Sathi card?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>No — downloading your digital ration card from the official portal is free.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Can I download the card for a family member separately?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>The digital ration card covers the full household under one record; individual family members don't have separate downloadable cards, though all registered members will appear listed on the single household card.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Schemes Section -->
+          <section class="content-block">
+            <h2>Related Schemes</h2>
+            <div class="scheme-grid">
+              <a href="/schemes/swasthya-sathi/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Health Cover</span>
+                  <span class="scheme-card-icon">🏥</span>
+                </div>
+                <h3 class="scheme-card-title">Swasthya Sathi Scheme</h3>
+                <p class="scheme-card-summary">Rs 5 lakh cashless health insurance per family per year across government and empanelled hospitals.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/lakshmir-bhandar/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Women Welfare</span>
+                  <span class="scheme-card-icon">🏛️</span>
+                </div>
+                <h3 class="scheme-card-title">Lakshmir Bhandar Scheme</h3>
+                <p class="scheme-card-summary">Financial aid of Rs 1,000 (General) and Rs 1,200 (SC/ST) monthly for women in West Bengal.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/krishak-bandhu/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Farmer Support</span>
+                  <span class="scheme-card-icon">🌾</span>
+                </div>
+                <h3 class="scheme-card-title">Krishak Bandhu Scheme</h3>
+                <p class="scheme-card-summary">Rs 10,000 annual financial assistance per acre and Rs 2 lakh death assurance for farmers.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Quick Links & Services</h3>
+            <div class="quick-links-container">
+              <a href="/schemes/khadya-sathi/card-download/index.html" class="quick-link-item">
+                <span class="quick-link-icon">💳</span>
+                <div class="quick-link-text">
+                  <span class="quick-link-title">Download E-Card Online</span>
+                  <span class="quick-link-sub">Official Guide & Portal</span>
+                </div>
+                <span class="quick-link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Contact -->
+        <div class="footer-col">
+          <div class="footer-brand-title">
+            <div class="footer-brand-emblem">WB</div>
+            <span>WB Schemes Portal</span>
+          </div>
+          <p class="disclaimer-text">
+            Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
+          </p>
+          <div class="footer-contact-block">
+            <div class="footer-contact-item">📧 <span>contact@wb-schemes-portal-three.vercel.app</span></div>
+            <div class="footer-contact-item">📞 <span>1800-123-4567 (Toll Free Helpline)</span></div>
+          </div>
+          <div class="footer-social-row">
+            <a href="https://facebook.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            <a href="https://twitter.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter">tw</a>
+            <a href="https://youtube.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+            <a href="https://whatsapp.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore Navigation -->
+        <div class="footer-col">
+          <h3>Explore Portal</h3>
+          <ul>
+            <li><a href="/index.html" class="footer-link">🏠 Home</a></li>
+            <li><a href="/schemes/index.html" class="footer-link">📋 All Schemes List</a></li>
+            <li><a href="/categories/index.html" class="footer-link">🏛️ Scheme Categories</a></li>
+            <li><a href="/blog/index.html" class="footer-link">📰 Latest Updates</a></li>
+            <li><a href="/schemes/health-schemes/index.html" class="footer-link">🏥 Health Schemes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Services -->
+        <div class="footer-col">
+          <h3>Quick Services</h3>
+          <ul>
+            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">🔍 Status Check Guides</a></li>
+            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">💳 E-Card Downloads</a></li>
+            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">📝 Application Forms</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About Us</a></li>
+            <li><a href="/contact/index.html" class="footer-link">✉️ Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Disclaimers -->
+        <div class="footer-col">
+          <h3>Legal & Disclaimers</h3>
+          <ul>
+            <li><a href="/disclaimer/index.html" class="footer-link">⚠️ Official Disclaimer →</a></li>
+            <li><a href="/privacy-policy/index.html" class="footer-link">🔒 Privacy Policy →</a></li>
+            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">🏛️ Official WB Portal →</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About This Initiative →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 WB Schemes Portal. All rights reserved.</p>
+        <span class="footer-bottom-tagline">Public Awareness Initiative for the Citizens of West Bengal</span>
+        <div class="footer-bottom-links">
+          <a class="body-link" href="/sitemap.xml">Sitemap</a>
+          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>
+          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>
+          <a class="body-link" href="/contact/index.html">Help Desk</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+fs.writeFileSync(page14Path, page14Html, 'utf8');
+const newWordCountPage14 = getArticleWordCount(page14Path);
+console.log(`Page 14 Updated: ${oldWordCountPage14} words -> ${newWordCountPage14} words`);
