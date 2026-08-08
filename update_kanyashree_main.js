@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 21: /schemes/kanyashree-prakalpa/index.html
+// -------------------------------------------------------------------------
+const page21Path = path.join(rootDir, 'schemes', 'kanyashree-prakalpa', 'index.html');
+const oldWordCountPage21 = getArticleWordCount(page21Path);
+
+const page21Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/kanyashree-prakalpa/">
+  <link rel="canonical" href="${domain}/schemes/kanyashree-prakalpa/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Kanyashree Prakalpa Scheme 2026 — K1, K2 Amount & Eligibility">
   <meta property="og:description" content="Complete guide to Kanyashree Prakalpa — ₹1,000 annual scholarship (K1) and ₹25,000 one-time grant (K2) for girls in West Bengal. Eligibility & apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/kanyashree-prakalpa/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/kanyashree-prakalpa/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kanyashree Prakalpa Scheme 2026 — K1, K2 Amount & Eligibility">
@@ -385,32 +405,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Institutional Verification Workflow and Nodal Teacher Role</h2>
-  <p>
-    The administration of Kanyashree Prakalpa relies heavily on educational institutions across West Bengal to ensure transparent beneficiary management:
-  </p>
-  <ul>
-    <li><strong>School Nodal Teachers:</strong> Every recognized high school and higher secondary institution designates a Kanyashree Nodal Teacher responsible for distributing Form K1/K2 and assisting students during submission.</li>
-    <li><strong>Digital Data Entry:</strong> Nodal teachers digitize paper forms onto the portal at wbkanyashree.gov.in, verifying student attendance and unmarried declarations against school registers.</li>
-    <li><strong>Block & District Approval:</strong> Submitted files are verified by the Block Development Officer (BDO) and formally sanctioned by the District Magistrate's office prior to IFMS fund release.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Special Coverage for Vulnerable Categories</h2>
-  <p>
-    To ensure complete social inclusion, Kanyashree Prakalpa incorporates special relaxation provisions:
-  </p>
-  <ul>
-    <li><strong>Juvenile Justice Home Inmates:</strong> Resident girls in government-registered J.J. homes are eligible for K1 and K2 grants with age relaxation and simplified documentation.</li>
-    <li><strong>Differently-Abled Students:</strong> Girls with 40% or higher physical or intellectual disability receive priority processing and automatic fee waivers across technical courses.</li>
-    <li><strong>Orphaned Girls:</strong> Orphaned applicants are exempted from guardian income declarations upon certification by local social welfare officers.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -518,4 +513,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page21Path, page21Html, 'utf8');
+const newWordCountPage21 = getArticleWordCount(page21Path);
+console.log(`Page 21 Updated: ${oldWordCountPage21} words -> ${newWordCountPage21} words`);
