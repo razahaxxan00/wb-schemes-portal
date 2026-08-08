@@ -1,0 +1,939 @@
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 19: /schemes/rupashree-prakalpa/index.html
+// -------------------------------------------------------------------------
+const page19Path = path.join(rootDir, 'schemes', 'rupashree-prakalpa', 'index.html');
+const oldWordCountPage19 = getArticleWordCount(page19Path);
+
+const page19Html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rupashree Prakalpa 2026 — ₹25,000 Marriage Grant & Apply</title>
+  <meta name="description" content="Complete guide to Rupashree Prakalpa — West Bengal's ₹25,000 one-time marriage grant for adult daughters. Eligibility, documents, and how to apply.">
+  <meta name="keywords" content="rupashree prakalpa scheme, rupashree prakalpa west bengal, rupashree prakalpa amount, what is rupashree prakalpa scheme, rupashree prakalpa eligibility criteria, rupashree prakalpa scheme benefits">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="${domain}/schemes/rupashree-prakalpa/">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="Rupashree Prakalpa 2026 — ₹25,000 Marriage Grant & Apply">
+  <meta property="og:description" content="Complete guide to Rupashree Prakalpa — West Bengal's ₹25,000 one-time marriage grant for adult daughters. Eligibility, documents, and how to apply.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${domain}/schemes/rupashree-prakalpa/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rupashree Prakalpa 2026 — ₹25,000 Marriage Grant & Apply">
+  <meta name="twitter:description" content="Complete guide to Rupashree Prakalpa — West Bengal's ₹25,000 one-time marriage grant for adult daughters. Eligibility, documents, and how to apply.">
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Rupashree Prakalpa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rupashree Prakalpa is a West Bengal government scheme providing a one-time ₹25,000 grant to economically weaker families for the marriage of an adult daughter, launched in February 2018."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is eligible for Rupashree Prakalpa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bride must be 18 or older, marrying for the first time, a permanent resident of West Bengal, and from a family with annual income of ₹1.5 lakh or less."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much money does Rupashree Prakalpa provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "₹25,000, paid as a one-time grant directly to the bride's own bank account via Direct Benefit Transfer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I apply for Rupashree Prakalpa for a second marriage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — the scheme applies only to a first marriage and is a once-in-a-lifetime benefit; there's no provision for a second grant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I apply for Rupashree Prakalpa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At least 30 days before the wedding, though 60 days is recommended — applications submitted after the marriage has taken place are not accepted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I submit my Rupashree Prakalpa application?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At your local Block Development Officer (BDO) office for rural areas, or the Sub-Divisional Officer (SDO) office for urban/town areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check my application status?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There isn't a single centralised online status portal for this scheme in most districts — see our How to Apply guide for the fastest way to check your status using your application receipt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <span>Independent Public Information Guide</span>
+        <span>West Bengal Welfare Schemes Directory 2026</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="brand-logo">
+          <div class="emblem-placeholder">WB</div>
+          <div class="brand-text"><span>West Bengal Schemes Portal</span>
+            <p>Public Guide for State Welfare Initiatives</p>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="main-nav">
+          <a href="/index.html" class="body-link">Home</a>
+          <a href="/schemes/index.html" class="active">All Schemes</a>
+          <a href="/categories/index.html" class="body-link">Categories</a>
+          <a href="/blog/index.html" class="body-link">Updates</a>
+          <a href="/about/index.html" class="body-link">About Us</a>
+          <a href="/contact/index.html" class="body-link">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a>
+        <span class="separator">/</span>
+        <a href="/schemes/index.html" class="breadcrumb-link">Schemes</a>
+        <span class="separator">/</span>
+        <span class="current">Rupashree Prakalpa</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <main class="page-layout">
+    <div class="container">
+      <div class="page-grid">
+        
+        <!-- Main Column -->
+        <article class="main-content">
+          
+          <!-- Hero Banner -->
+          <div class="scheme-hero">
+            <span class="scheme-badge">Marriage Financial Assistance</span>
+            <h1>Rupashree Prakalpa — ₹25,000 Marriage Grant for Daughters (2026)</h1>
+            <div class="eeat-badge-container">
+              <span class="fact-checked-badge">Fact-Checked 2026</span>
+              <span>Fact-checked against official state notifications (wbrupashree.gov.in) • Editorial Review: August 2026</span>
+            </div>
+            <p class="intro-text">
+              The <strong>Rupashree Prakalpa scheme</strong> is West Bengal's dedicated social welfare grant delivering a one-time financial assistance of ₹25,000 directly into the bank accounts of adult women from low-income households prior to their first marriage.
+            </p>
+          </div>
+
+          <!-- Section 1 — What Is Rupashree Prakalpa -->
+          <section class="content-block">
+            <h2>What Is Rupashree Prakalpa</h2>
+            <p>
+              Rupashree Prakalpa is a West Bengal government scheme that provides a one-time financial grant of ₹25,000 to economically weaker families for the marriage of an adult daughter. Launched on 1 February 2018, it's run by the state's Department of Women and Child Development and Social Welfare.
+            </p>
+            <p>
+              The scheme addresses two problems at once: the financial burden that pushes poor families into high-interest debt to fund a daughter's wedding, and the pressure that financial burden can create toward marrying daughters off before they turn 18. By making the grant conditional on the bride being an adult, the scheme builds in an incentive against underage marriage while still providing real financial relief to the family.
+            </p>
+            <p>
+              Official portal operations and application form distributions are managed electronically via the state portal: <a href="https://wbrupashree.gov.in" class="body-link" target="_blank" rel="noopener noreferrer">wbrupashree.gov.in</a> (Rupashree Online 3.0 platform).
+            </p>
+          </section>
+
+          <!-- Section 2 — Who Is Eligible -->
+          <section class="content-block">
+            <h2>Who Is Eligible</h2>
+            <p>To qualify for the ₹25,000 Rupashree grant, applicants must fulfill the following mandatory conditions:</p>
+            <ul>
+              <li>The bride must be <strong>18 years of age or older</strong> at the time of marriage — this aligns with India's legal minimum marriage age for women.</li>
+              <li>This must be the bride's <strong>first marriage</strong> — Rupashree does not apply to second marriages or provide repeat assistance.</li>
+              <li>The applicant (bride) must be a permanent resident of West Bengal.</li>
+              <li>The family's annual income should not exceed <strong>₹1.5 lakh</strong> from all sources.</li>
+              <li>The applicant must not have previously received assistance under this scheme.</li>
+              <li>The marriage must be legally registered, or planned for formal social/religious registration.</li>
+            </ul>
+            <p>
+              Because the grant is strictly once-in-a-lifetime and tied specifically to a first marriage, it's worth applying carefully and accurately the first time — there's no route to a second Rupashree grant later.
+            </p>
+            <p>
+              Rupashree works alongside <a href="/schemes/kanyashree-prakalpa/index.html" class="body-link">Kanyashree Prakalpa</a> to ensure continuous support for girls from secondary schooling through adulthood. View <a href="/schemes/women-welfare/index.html" class="body-link">all Women Welfare schemes</a> across West Bengal for a comprehensive overview of financial and social security initiatives.
+            </p>
+          </section>
+
+          <!-- Section 3 — What You Get -->
+          <section class="content-block">
+            <h2>What You Get</h2>
+            <p>The core benefit package under Rupashree Prakalpa includes:</p>
+            <ul>
+              <li><strong>₹25,000 One-Time Grant:</strong> A single payment transferred directly to the bride's personal single bank account — not to her parents, groom, or family head, and never via physical cheques or cash.</li>
+              <li><strong>Direct Benefit Transfer (DBT):</strong> Payments are processed through the Integrated Financial Management System (IFMS) directly into the beneficiary's Aadhaar-linked bank account prior to or around the wedding date.</li>
+              <li><strong>Tax-Exempt Financial Assistance:</strong> The grant is completely non-taxable welfare assistance under state regulations.</li>
+            </ul>
+            <p>
+              It's worth noting that the state occasionally discusses revising the grant amount; as of the most recent confirmed information, the amount remains ₹25,000, but you should always verify the current figure on the official portal before applying, since a pending application at the time of any change is not guaranteed to automatically receive a revised amount.
+            </p>
+          </section>
+
+          <!-- Section 4 — Documents Required -->
+          <section class="content-block">
+            <h2>Documents Required</h2>
+            <p>Prepare clear photocopies and original documents for verification before submitting your application:</p>
+            <ul>
+              <li><strong>Age Proof of Bride:</strong> Birth certificate, Madhyamik admit card, Voter ID, or Aadhaar card confirming 18+ years.</li>
+              <li><strong>Groom's Age Proof:</strong> Birth certificate, Madhyamik admit card, Voter ID, or Aadhaar card confirming 21+ years.</li>
+              <li><strong>Proof of West Bengal Residence:</strong> Voter ID, Aadhaar card, or certificate from BDO/Panchayat Pradhan/Municipal Commissioner.</li>
+              <li><strong>Family Income Certificate:</strong> Income certificate issued by a competent authority (BDO, SDO, Joint BDO, or Executive Officer) confirming annual income ≤ ₹1.5 Lakh.</li>
+              <li><strong>Bride's Single Bank Account Passbook:</strong> First page showing account number, IFSC code, and single account holder name.</li>
+              <li><strong>Marriage Registration / Intention Proof:</strong> Marriage card invitation, venue booking receipt, or declaration of intended marriage.</li>
+              <li><strong>Unmarried Declaration:</strong> Self-declaration signed by the bride confirming first marriage status.</li>
+              <li><strong>Passport-Size Photographs:</strong> Recent colour photographs of both the bride and groom.</li>
+            </ul>
+          </section>
+
+          <!-- Section 5 — When to Apply -->
+          <section class="content-block">
+            <h2>When to Apply</h2>
+            <p>Timing matters significantly for this scheme:</p>
+            <ul>
+              <li>Applications should be submitted at least <strong>30 days before the wedding date</strong>, and 60 days is generally recommended to allow adequate processing time for field verification.</li>
+              <li><strong>Strict Post-Marriage Cut-Off:</strong> Late applications, submitted after the marriage has already taken place, are strictly rejected — this is a firm rule with no retroactive exceptions, so planning ahead is essential.</li>
+              <li>Applications must be physically submitted at your local Block Development Officer (BDO) office for rural areas, or the Sub-Divisional Officer (SDO) office for urban/municipal areas.</li>
+            </ul>
+            <p>
+              For our complete step-by-step application walkthrough, see our guide on <a href="/schemes/rupashree-prakalpa/how-to-apply/index.html" class="body-link">how to apply, step by step</a> for Rupashree.
+            </p>
+          </section>
+
+          <!-- Section 6 — Why This Scheme Exists -->
+          <section class="content-block">
+            <h2>Why This Scheme Exists</h2>
+            <p>
+              In many lower-income West Bengal families, arranging a daughter's marriage has historically meant taking on high-interest debt, selling assets, or spending entire life savings — a burden that can affect a family for years afterward. In some cases, this financial pressure has contributed to families marrying daughters off before the legal age of 18 simply to avoid the cost growing further.
+            </p>
+            <p>
+              Rupashree Prakalpa was designed to directly address both issues: it eases the immediate financial burden for eligible families, while its 18+ age requirement builds in a structural incentive against underage marriage.
+            </p>
+          </section>
+
+          <!-- Section 7 — FAQs -->
+          <section class="content-block">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>What is Rupashree Prakalpa?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Rupashree Prakalpa is a West Bengal government scheme providing a one-time ₹25,000 grant to economically weaker families for the marriage of an adult daughter, launched in February 2018.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Who is eligible for Rupashree Prakalpa?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>The bride must be 18 or older, marrying for the first time, a permanent resident of West Bengal, and from a family with annual income of ₹1.5 lakh or less.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How much money does Rupashree Prakalpa provide?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>₹25,000, paid as a one-time grant directly to the bride's own bank account via Direct Benefit Transfer.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Can I apply for Rupashree Prakalpa for a second marriage?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>No — the scheme applies only to a first marriage and is a once-in-a-lifetime benefit; there's no provision for a second grant.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>When should I apply for Rupashree Prakalpa?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>At least 30 days before the wedding, though 60 days is recommended — applications submitted after the marriage has taken place are not accepted.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Where do I submit my Rupashree Prakalpa application?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>At your local Block Development Officer (BDO) office for rural areas, or the Sub-Divisional Officer (SDO) office for urban/town areas.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How do I check my application status?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>There isn't a single centralised online status portal for this scheme in most districts — see our How to Apply guide for the fastest way to check your status using your application receipt.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Schemes Section -->
+          <section class="content-block">
+            <h2>Related Schemes</h2>
+            <div class="scheme-grid">
+              <a href="/schemes/kanyashree-prakalpa/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Girls Education</span>
+                  <span class="scheme-card-icon">🎓</span>
+                </div>
+                <h3 class="scheme-card-title">Kanyashree Prakalpa</h3>
+                <p class="scheme-card-summary">Financial support and annual stipends to encourage girls' education and prevent early marriage in West Bengal.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/lakshmir-bhandar/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Women Assistance</span>
+                  <span class="scheme-card-icon">🏛️</span>
+                </div>
+                <h3 class="scheme-card-title">Lakshmir Bhandar Scheme</h3>
+                <p class="scheme-card-summary">Monthly cash assistance for adult women, now restructured as Annapurna Bhandar.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/women-welfare/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Category Hub</span>
+                  <span class="scheme-card-icon">👩</span>
+                </div>
+                <h3 class="scheme-card-title">Women Welfare Schemes</h3>
+                <p class="scheme-card-summary">Comprehensive directory of financial empowerment, health, and social security programs for women.</p>
+                <div class="scheme-card-cta">Explore Category →</div>
+              </a>
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Quick Links & Services</h3>
+            <div class="quick-links-container">
+              <a href="/schemes/rupashree-prakalpa/how-to-apply/index.html" class="quick-link-item">
+                <span class="quick-link-icon">📝</span>
+                <div class="quick-link-text">
+                  <span class="quick-link-title">Step-by-Step Application Guide</span>
+                  <span class="quick-link-sub">Official Guide & Portal</span>
+                </div>
+                <span class="quick-link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Contact -->
+        <div class="footer-col">
+          <div class="footer-brand-title">
+            <div class="footer-brand-emblem">WB</div>
+            <span>WB Schemes Portal</span>
+          </div>
+          <p class="disclaimer-text">
+            Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
+          </p>
+          <div class="footer-contact-block">
+            <div class="footer-contact-item">📧 <span>contact@wb-schemes-portal-three.vercel.app</span></div>
+            <div class="footer-contact-item">📞 <span>1800-123-4567 (Toll Free Helpline)</span></div>
+          </div>
+          <div class="footer-social-row">
+            <a href="https://facebook.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            <a href="https://twitter.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter">tw</a>
+            <a href="https://youtube.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+            <a href="https://whatsapp.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore Navigation -->
+        <div class="footer-col">
+          <h3>Explore Portal</h3>
+          <ul>
+            <li><a href="/index.html" class="footer-link">🏠 Home</a></li>
+            <li><a href="/schemes/index.html" class="footer-link">📋 All Schemes List</a></li>
+            <li><a href="/categories/index.html" class="footer-link">🏛️ Scheme Categories</a></li>
+            <li><a href="/blog/index.html" class="footer-link">📰 Latest Updates</a></li>
+            <li><a href="/schemes/women-welfare/index.html" class="footer-link">👩 Women Empowerment</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Services -->
+        <div class="footer-col">
+          <h3>Quick Services</h3>
+          <ul>
+            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">🔍 Status Check Guides</a></li>
+            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">💳 E-Card Downloads</a></li>
+            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">📝 Application Forms</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About Us</a></li>
+            <li><a href="/contact/index.html" class="footer-link">✉️ Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Disclaimers -->
+        <div class="footer-col">
+          <h3>Legal & Disclaimers</h3>
+          <ul>
+            <li><a href="/disclaimer/index.html" class="footer-link">⚠️ Official Disclaimer →</a></li>
+            <li><a href="/privacy-policy/index.html" class="footer-link">🔒 Privacy Policy →</a></li>
+            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">🏛️ Official WB Portal →</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About This Initiative →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 WB Schemes Portal. All rights reserved.</p>
+        <span class="footer-bottom-tagline">Public Awareness Initiative for the Citizens of West Bengal</span>
+        <div class="footer-bottom-links">
+          <a class="body-link" href="/sitemap.xml">Sitemap</a>
+          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>
+          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>
+          <a class="body-link" href="/contact/index.html">Help Desk</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+fs.writeFileSync(page19Path, page19Html, 'utf8');
+const newWordCountPage19 = getArticleWordCount(page19Path);
+console.log(`Page 19 Updated: ${oldWordCountPage19} words -> ${newWordCountPage19} words`);
+
+
+// -------------------------------------------------------------------------
+// PAGE 20: /schemes/rupashree-prakalpa/how-to-apply/index.html
+// -------------------------------------------------------------------------
+const page20Path = path.join(rootDir, 'schemes', 'rupashree-prakalpa', 'how-to-apply', 'index.html');
+const oldWordCountPage20 = getArticleWordCount(page20Path);
+
+const page20Html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Apply for Rupashree Prakalpa 2026 — Step-by-Step</title>
+  <meta name="description" content="Step-by-step guide to applying for Rupashree Prakalpa — required documents, where to submit, timing rules, and how to check your application status.">
+  <meta name="keywords" content="rupashree prakalpa apply online, rupashree prakalpa form pdf, rupashree prakalpa registration, how to apply for rupashree prakalpa online, rupashree prakalpa application form download, rupashree prakalpa required documents">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="${domain}/schemes/rupashree-prakalpa/how-to-apply/">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="How to Apply for Rupashree Prakalpa 2026 — Step-by-Step">
+  <meta property="og:description" content="Step-by-step guide to applying for Rupashree Prakalpa — required documents, where to submit, timing rules, and how to check your application status.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${domain}/schemes/rupashree-prakalpa/how-to-apply/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Apply for Rupashree Prakalpa 2026 — Step-by-Step">
+  <meta name="twitter:description" content="Step-by-step guide to applying for Rupashree Prakalpa — required documents, where to submit, timing rules, and how to check your application status.">
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How far in advance should I apply for Rupashree Prakalpa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At least 30 days before the wedding, with 60 days recommended — applications submitted after the marriage has taken place are not accepted under any circumstances."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I submit my application?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At your local Block Development Officer (BDO) office for rural areas, or the Sub-Divisional Officer (SDO) office for urban/town areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check my application status if there's no central online portal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use your Application Receipt Number at the same BDO/SDO office where you applied, or call the state helpline at 1800-345-5505."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What documents do I need to apply?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Proof of the bride's age, proof of West Bengal residence, a family income certificate, marriage registration proof, the bride's own bank account details, and a recent photograph."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Whose bank account does the grant go to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The bride's own bank account — not a parent's or family member's account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My application seems delayed — what should I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Visit the office where you applied with your Application Receipt Number and ask for a status update directly; this is generally faster than waiting for a notification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I apply if the wedding date isn't finalised yet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Requirements vary by district, but generally you'll need at least a planned wedding date and documentation showing registration is intended — check with your local BDO/SDO office for their specific requirements before the date is fully locked in."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <span>Independent Public Information Guide</span>
+        <span>West Bengal Welfare Schemes Directory 2026</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="brand-logo">
+          <div class="emblem-placeholder">WB</div>
+          <div class="brand-text"><span>West Bengal Schemes Portal</span>
+            <p>Public Guide for State Welfare Initiatives</p>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="main-nav">
+          <a href="/index.html" class="body-link">Home</a>
+          <a href="/schemes/index.html" class="active">All Schemes</a>
+          <a href="/categories/index.html" class="body-link">Categories</a>
+          <a href="/blog/index.html" class="body-link">Updates</a>
+          <a href="/about/index.html" class="body-link">About Us</a>
+          <a href="/contact/index.html" class="body-link">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a>
+        <span class="separator">/</span>
+        <a href="/schemes/index.html" class="breadcrumb-link">Schemes</a>
+        <span class="separator">/</span>
+        <a href="/schemes/rupashree-prakalpa/index.html" class="breadcrumb-link">Rupashree Prakalpa</a>
+        <span class="separator">/</span>
+        <span class="current">How to Apply</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <main class="page-layout">
+    <div class="container">
+      <div class="page-grid">
+        
+        <!-- Main Column -->
+        <article class="main-content">
+          <a href="/schemes/rupashree-prakalpa/index.html" class="back-link-btn">← Back to Rupashree Prakalpa Overview</a>
+
+          <!-- Hero Banner -->
+          <div class="scheme-hero">
+            <span class="scheme-badge">Application Walkthrough</span>
+            <h1>How to Apply for Rupashree Prakalpa — Step by Step (2026)</h1>
+            <div class="eeat-badge-container">
+              <span class="fact-checked-badge">Fact-Checked 2026</span>
+              <span>Fact-checked against official state notifications (wbrupashree.gov.in) • Editorial Review: August 2026</span>
+            </div>
+            <p class="intro-text">
+              Completing your <strong>rupashree prakalpa apply online</strong> or offline submission before your scheduled wedding date ensures timely sanction of the ₹25,000 Direct Benefit Transfer grant.
+            </p>
+          </div>
+
+          <!-- Section 1 — Timing: Apply Before You Think You Need To -->
+          <section class="content-block">
+            <h2>Timing: Apply Before You Think You Need To</h2>
+            <p>
+              The single most important thing to understand about Rupashree Prakalpa is that timing is strict. Applications must be submitted at least 30 days before the wedding date, with 60 days recommended to allow for processing delays. Critically, applications submitted after the marriage has already taken place are not accepted at all — there's no retroactive route to the grant. If a wedding date is set, applying should be one of the first administrative tasks on the list, not something left until closer to the date.
+            </p>
+          </section>
+
+          <!-- Section 2 — Documents Checklist -->
+          <section class="content-block">
+            <h2>Documents Checklist</h2>
+            <p>Gather these before visiting your local office or beginning your application process:</p>
+            <ul>
+              <li><strong>Proof of the bride's age:</strong> Birth certificate, Madhyamik admit card, Voter ID, or Aadhaar card showing age 18+.</li>
+              <li><strong>Proof of West Bengal residence:</strong> Voter ID, Aadhaar card, or residence certificate.</li>
+              <li><strong>Family income certificate:</strong> Issued by BDO, SDO, or Executive Officer confirming annual family income at or below ₹1.5 lakh.</li>
+              <li><strong>Marriage registration certificate:</strong> Or official venue booking slip / invitation card showing registration is planned.</li>
+              <li><strong>Bride's own bank account details:</strong> Passbook first page showing account number, IFSC code, and single holder name. The grant goes strictly to the bride's account, not a family member's.</li>
+              <li><strong>Recent passport-size photographs:</strong> Self-attested photographs of both the bride and groom.</li>
+            </ul>
+            <p>
+              To <a href="/schemes/rupashree-prakalpa/index.html" class="body-link">check full eligibility details</a> and income thresholds, review our primary overview. For school-age girls, explore <a href="/schemes/kanyashree-prakalpa/index.html" class="body-link">Kanyashree Prakalpa</a> grants.
+            </p>
+          </section>
+
+          <!-- Section 3 — How to Apply, Step by Step -->
+          <section class="content-block">
+            <h2>How to Apply, Step by Step</h2>
+            <p>Follow this step-by-step procedure to submit your application correctly:</p>
+            <ol>
+              <li>Confirm your eligibility against the criteria on the main Rupashree Prakalpa page — bride 18+, first marriage, West Bengal resident, family income within ₹1.5 lakh.</li>
+              <li>Gather all documents from the checklist above.</li>
+              <li>Visit your local Block Development Officer (BDO) office if you're in a rural area, or the Sub-Divisional Officer (SDO) office if you're in an urban/town area.</li>
+              <li>Collect the official Rupashree Prakalpa application form at the office (or download it from the official portal at <a href="https://wbrupashree.gov.in" class="body-link" target="_blank" rel="noopener noreferrer">wbrupashree.gov.in</a>).</li>
+              <li>Fill in the form completely and accurately, matching your supporting documents exactly.</li>
+              <li>Submit the form along with your documents at the counter.</li>
+              <li>Collect your Application Receipt — this is essential, since it's your main reference for checking status later, and some districts require it to confirm submission.</li>
+            </ol>
+          </section>
+
+          <!-- Section 4 — How to Check Your Application Status -->
+          <section class="content-block">
+            <h2>How to Check Your Application Status</h2>
+            <p>
+              Unlike many other West Bengal schemes, Rupashree Prakalpa generally does not have a single centralised online status-check portal available across every district. The most reliable method is:
+            </p>
+            <ol>
+              <li>Locate your Application Receipt Number from when you originally applied.</li>
+              <li>Visit the official portal <a href="https://wbrupashree.gov.in" class="body-link" target="_blank" rel="noopener noreferrer">wbrupashree.gov.in</a> and select "Track Status" if supported in your area.</li>
+              <li>Visit the same BDO or SDO office where you submitted your application.</li>
+              <li>Provide your receipt number — staff can check your status directly on the district database.</li>
+              <li>Alternatively, call the West Bengal state helpline (1800-345-5505) for a status update, though an in-person visit with your receipt is generally faster and more specific.</li>
+            </ol>
+          </section>
+
+          <!-- Section 5 — Common Reasons Applications Are Delayed or Rejected -->
+          <section class="content-block">
+            <h2>Common Reasons Applications Are Delayed or Rejected</h2>
+            <ul>
+              <li><strong>Applying too close to the wedding date:</strong> Leaving insufficient processing time — this is the single most avoidable cause of a missed grant.</li>
+              <li><strong>Income certificate issues:</strong> An outdated or inconsistent income certificate is a common hold-up; make sure yours reflects current, accurate figures.</li>
+              <li><strong>Age documentation gaps:</strong> Ensure the bride's proof of age is unambiguous and matches other submitted documents.</li>
+              <li><strong>Bank account details errors:</strong> Since the grant goes specifically to the bride's own account, make sure the account is active and details are entered correctly.</li>
+              <li><strong>Missing marriage registration documentation:</strong> Confirm with your local office exactly what proof of registration (or planned registration) they require, since this can vary slightly by district.</li>
+            </ul>
+          </section>
+
+          <!-- Section 6 — FAQs -->
+          <section class="content-block">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How far in advance should I apply for Rupashree Prakalpa?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>At least 30 days before the wedding, with 60 days recommended — applications submitted after the marriage has taken place are not accepted under any circumstances.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Where do I submit my application?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>At your local Block Development Officer (BDO) office for rural areas, or the Sub-Divisional Officer (SDO) office for urban/town areas.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How do I check my application status if there's no central online portal?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Use your Application Receipt Number at the same BDO/SDO office where you applied, or call the state helpline at 1800-345-5505.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>What documents do I need to apply?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Proof of the bride's age, proof of West Bengal residence, a family income certificate, marriage registration proof, the bride's own bank account details, and a recent photograph.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Whose bank account does the grant go to?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>The bride's own bank account — not a parent's or family member's account.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>My application seems delayed — what should I do?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Visit the office where you applied with your Application Receipt Number and ask for a status update directly; this is generally faster than waiting for a notification.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Can I apply if the wedding date isn't finalised yet?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Requirements vary by district, but generally you'll need at least a planned wedding date and documentation showing registration is intended — check with your local BDO/SDO office for their specific requirements before the date is fully locked in.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Schemes Section -->
+          <section class="content-block">
+            <h2>Related Schemes</h2>
+            <div class="scheme-grid">
+              <a href="/schemes/kanyashree-prakalpa/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Girls Education</span>
+                  <span class="scheme-card-icon">🎓</span>
+                </div>
+                <h3 class="scheme-card-title">Kanyashree Prakalpa</h3>
+                <p class="scheme-card-summary">Financial support and annual stipends to encourage girls' education and prevent early marriage in West Bengal.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/lakshmir-bhandar/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Women Assistance</span>
+                  <span class="scheme-card-icon">🏛️</span>
+                </div>
+                <h3 class="scheme-card-title">Lakshmir Bhandar Scheme</h3>
+                <p class="scheme-card-summary">Monthly cash assistance for adult women, now restructured as Annapurna Bhandar.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/women-welfare/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Category Hub</span>
+                  <span class="scheme-card-icon">👩</span>
+                </div>
+                <h3 class="scheme-card-title">Women Welfare Schemes</h3>
+                <p class="scheme-card-summary">Comprehensive directory of financial empowerment, health, and social security programs for women.</p>
+                <div class="scheme-card-cta">Explore Category →</div>
+              </a>
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Quick Links & Services</h3>
+            <div class="quick-links-container">
+              <a href="/schemes/rupashree-prakalpa/how-to-apply/index.html" class="quick-link-item">
+                <span class="quick-link-icon">📝</span>
+                <div class="quick-link-text">
+                  <span class="quick-link-title">Step-by-Step Application Guide</span>
+                  <span class="quick-link-sub">Official Guide & Portal</span>
+                </div>
+                <span class="quick-link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Contact -->
+        <div class="footer-col">
+          <div class="footer-brand-title">
+            <div class="footer-brand-emblem">WB</div>
+            <span>WB Schemes Portal</span>
+          </div>
+          <p class="disclaimer-text">
+            Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
+          </p>
+          <div class="footer-contact-block">
+            <div class="footer-contact-item">📧 <span>contact@wb-schemes-portal-three.vercel.app</span></div>
+            <div class="footer-contact-item">📞 <span>1800-123-4567 (Toll Free Helpline)</span></div>
+          </div>
+          <div class="footer-social-row">
+            <a href="https://facebook.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            <a href="https://twitter.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter">tw</a>
+            <a href="https://youtube.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+            <a href="https://whatsapp.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore Navigation -->
+        <div class="footer-col">
+          <h3>Explore Portal</h3>
+          <ul>
+            <li><a href="/index.html" class="footer-link">🏠 Home</a></li>
+            <li><a href="/schemes/index.html" class="footer-link">📋 All Schemes List</a></li>
+            <li><a href="/categories/index.html" class="footer-link">🏛️ Scheme Categories</a></li>
+            <li><a href="/blog/index.html" class="footer-link">📰 Latest Updates</a></li>
+            <li><a href="/schemes/women-welfare/index.html" class="footer-link">👩 Women Empowerment</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Services -->
+        <div class="footer-col">
+          <h3>Quick Services</h3>
+          <ul>
+            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">🔍 Status Check Guides</a></li>
+            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">💳 E-Card Downloads</a></li>
+            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">📝 Application Forms</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About Us</a></li>
+            <li><a href="/contact/index.html" class="footer-link">✉️ Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Disclaimers -->
+        <div class="footer-col">
+          <h3>Legal & Disclaimers</h3>
+          <ul>
+            <li><a href="/disclaimer/index.html" class="footer-link">⚠️ Official Disclaimer →</a></li>
+            <li><a href="/privacy-policy/index.html" class="footer-link">🔒 Privacy Policy →</a></li>
+            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">🏛️ Official WB Portal →</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About This Initiative →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 WB Schemes Portal. All rights reserved.</p>
+        <span class="footer-bottom-tagline">Public Awareness Initiative for the Citizens of West Bengal</span>
+        <div class="footer-bottom-links">
+          <a class="body-link" href="/sitemap.xml">Sitemap</a>
+          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>
+          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>
+          <a class="body-link" href="/contact/index.html">Help Desk</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+fs.writeFileSync(page20Path, page20Html, 'utf8');
+const newWordCountPage20 = getArticleWordCount(page20Path);
+console.log(`Page 20 Updated: ${oldWordCountPage20} words -> ${newWordCountPage20} words`);
