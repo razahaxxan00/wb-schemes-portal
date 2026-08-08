@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 30: /schemes/utkarsh-bangla/index.html
+// -------------------------------------------------------------------------
+const page30Path = path.join(rootDir, 'schemes', 'utkarsh-bangla', 'index.html');
+const oldWordCountPage30 = getArticleWordCount(page30Path);
+
+const page30Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/utkarsh-bangla/">
+  <link rel="canonical" href="${domain}/schemes/utkarsh-bangla/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Utkarsh Bangla Scheme 2026 — Free Skill Training, Eligibility">
   <meta property="og:description" content="Complete guide to Utkarsh Bangla — free vocational skill training and placement support for West Bengal youth. Courses, eligibility & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/utkarsh-bangla/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/utkarsh-bangla/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Utkarsh Bangla Scheme 2026 — Free Skill Training, Eligibility">
@@ -355,32 +375,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Training Quality Control, NSQF Alignment and Biometric Audits</h2>
-  <p>
-    To guarantee high instructional standards across all 23 districts, the Paschim Banga Society for Skill Development (PBSSD) implements strict quality management controls:
-  </p>
-  <ul>
-    <li><strong>NSQF & Sector Skill Council Accreditation:</strong> All short-term courses are aligned with National Skills Qualifications Framework (NSQF) levels (Levels 3 to 6), ensuring standardized practical curricula across ITIs and private training hubs.</li>
-    <li><strong>Time-Stamped Biometric Monitoring:</strong> Daily attendance of both trainers and students is captured via Aadhaar-enabled biometric attendance systems (AEBAS) to eliminate proxy attendance and verify course completion hours.</li>
-    <li><strong>Third-Party Skill Assessment:</strong> Final practical assessments and theory examinations are conducted by independent Sector Skill Council (SSC) assessors before digital certificates are generated on the PBSSD portal.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Corporate Placement Melas, Apprenticeships and Entrepreneurship Loans</h2>
-  <p>
-    Utkarsh Bangla integrates skill certification with active employment facilitation infrastructure across West Bengal:
-  </p>
-  <ul>
-    <li><strong>District Level Placement Fairs (Utkarsh Melas):</strong> The Department of Technical Education organizes quarterly job fairs in Kolkata, Siliguri, Asansol, and Kharagpur, bringing together top employers like Samsung, Tata Motors, and Berger Paints for direct campus hiring.</li>
-    <li><strong>National Apprenticeship Promotion Scheme (NAPS):</strong> Certified candidates are onboarded onto the NAPS and West Bengal Apprenticeship portals, securing paid industry apprenticeships with monthly stipends.</li>
-    <li><strong>Bhavishyat Credit Card & Self-Employment Capital:</strong> Trainees seeking self-employment in trades like tailoring, electrical repair, or beauty services are linked with the Bhavishyat Credit Card scheme for low-interest business loans up to ₹5 lakh.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -480,4 +475,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page30Path, page30Html, 'utf8');
+const newWordCountPage30 = getArticleWordCount(page30Path);
+console.log(`Page 30 Updated: ${oldWordCountPage30} words -> ${newWordCountPage30} words`);
