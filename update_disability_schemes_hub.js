@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 41: /schemes/disability-schemes/index.html
+// -------------------------------------------------------------------------
+const page41Path = path.join(rootDir, 'schemes', 'disability-schemes', 'index.html');
+const oldWordCountPage41 = getArticleWordCount(page41Path);
+
+const page41Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/disability-schemes/">
+  <link rel="canonical" href="${domain}/schemes/disability-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Disability Schemes West Bengal 2026 — Manabik & More">
   <meta property="og:description" content="All West Bengal government schemes for persons with disabilities — Manabik Pension, free assistive devices, scholarships, and job reservations.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/disability-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/disability-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Disability Schemes West Bengal 2026 — Manabik & More">
@@ -165,7 +185,7 @@
               West Bengal runs a combination of state and centrally-sponsored programmes for persons with disabilities (PwD), covering monthly financial support, free assistive devices, education assistance, self-employment help, and workplace protections. Most of these are administered through the state's Department of Women & Child Development and Social Welfare, alongside the Office of the Commissioner for Persons with Disabilities, West Bengal.
             </p>
             <p>
-              Nearly every benefit on this page requires you to first hold a valid disability certificate, issued by a competent medical authority confirming your disability type and percentage — so if you don't already have one, that's generally the first step before applying to any of the specific schemes below. Explore <a href="/schemes/pension-schemes/index.html" class="body-link">all Pension Schemes</a> operating across every district of West Bengal.
+              Nearly every benefit on this page requires you to first hold a valid disability certificate, issued by a competent medical authority confirming your disability type and percentage — so if you don't already have one, that's generally the first step before applying to any of the specific schemes below. Explore <a href="/schemes/pension-schemes/index.html" class="body-link">all Pension Schemes</a> operating across West Bengal.
             </p>
           </section>
 
@@ -373,36 +393,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Unique Disability ID (UDID) Card Online Registration Workflow</h2>
-  <p>
-    Under the Rights of Persons with Disabilities Act 2016, West Bengal has migrated to the national UDID portal (<code>swavlambancard.gov.in</code>) for digital certification:
-  </p>
-  <ul>
-    <li><strong>Single Digital Identity across India:</strong> The smart UDID card eliminates the need for holding multiple paper disability certificates across state and central government departments.</li>
-    <li><strong>Hospital Board Assessment Scheduling:</strong> Applicants submit online registration with Aadhaar details, after which an automated SMS notifies them of their physical assessment date at their designated District CMOH Hospital Board.</li>
-    <li><strong>QR-Coded Smart Card Issuance:</strong> Once approved by the medical board, a laminated QR-coded UDID card is delivered directly to the beneficiary's home address via registered post.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Accessible Public Infrastructure and Barrier-Free Accessibility Mandates</h2>
-  <p>
-    West Bengal enforces statutory accessibility standards across public transport, government offices, and educational institutions:
-  </p>
-  <ul>
-    <li><strong>Ramp and Lift Retrofitting in Public Buildings:</strong> Municipalities and district collectorates mandate tactile paving, wheelchair ramps, and braille signage across all public service centers.</li>
-    <li><strong>Accessible Mass Rapid Transit:</strong> Kolkata Metro Rail and state bus terminals incorporate audio-visual announcements and dedicated low-floor bus services for PwD commuters.</li>
-  </ul>
-</section>
-
-
-<p>
-  Ensuring universal accessibility, monthly income pensions, and equal employment opportunities empowers persons with disabilities to live with dignity and independence across West Bengal.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -510,4 +501,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page41Path, page41Html, 'utf8');
+const newWordCountPage41 = getArticleWordCount(page41Path);
+console.log(`Page 41 Updated: ${oldWordCountPage41} words -> ${newWordCountPage41} words`);
