@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 11: /schemes/aikyashree-scholarship/index.html
+// -------------------------------------------------------------------------
+const page11Path = path.join(rootDir, 'schemes', 'aikyashree-scholarship', 'index.html');
+const oldWordCountPage11 = 734;
+
+const page11Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/aikyashree-scholarship/">
+  <link rel="canonical" href="${domain}/schemes/aikyashree-scholarship/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Aikyashree Scholarship 2026 — Eligibility, Amount & Apply">
   <meta property="og:description" content="Complete guide to Aikyashree Scholarship 2026 for West Bengal minority students — Pre-Matric, Post-Matric, MCM, TSP & SVMCM. Check eligibility and how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/aikyashree-scholarship/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/aikyashree-scholarship/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aikyashree Scholarship 2026 — Eligibility, Amount & Apply">
@@ -526,4 +546,476 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page11Path, page11Html, 'utf8');
+const newWordCountPage11 = getArticleWordCount(page11Path);
+console.log(`Page 11 Updated: ${oldWordCountPage11} words -> ${newWordCountPage11} words`);
+
+
+// -------------------------------------------------------------------------
+// PAGE 12: /schemes/aikyashree-scholarship/status-check/index.html
+// -------------------------------------------------------------------------
+const page12Path = path.join(rootDir, 'schemes', 'aikyashree-scholarship', 'status-check', 'index.html');
+const oldWordCountPage12 = 430;
+
+const page12Html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aikyashree Status Check 2026 — Track Application Online</title>
+  <meta name="description" content="Step-by-step guide to check your Aikyashree scholarship application status online at wbmdfcscholarship.in, including troubleshooting common issues.">
+  <meta name="keywords" content="aikyashree scholarship status check, aikyashree application status, aikyashree scholarship tracking, how to check aikyashree scholarship status online, aikyashree scholarship status by application id, aikyashree scholarship payment status">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="${domain}/schemes/aikyashree-scholarship/status-check/">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="Aikyashree Status Check 2026 — Track Application Online">
+  <meta property="og:description" content="Step-by-step guide to check your Aikyashree scholarship application status online at wbmdfcscholarship.in, including troubleshooting common issues.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${domain}/schemes/aikyashree-scholarship/status-check/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aikyashree Status Check 2026 — Track Application Online">
+  <meta name="twitter:description" content="Step-by-step guide to check your Aikyashree scholarship application status online at wbmdfcscholarship.in, including troubleshooting common issues.">
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I check my Aikyashree scholarship application status?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Log in to the Student Panel at wbmdfcscholarship.in using your registered User ID and password, then navigate to the Application Status section."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does 'Pending Institute Verification' mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It means your school or college still needs to confirm your enrolment and academic details before your application can move to the next stage — this step depends on your institution's processing speed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My status shows 'Disbursed' but I haven't received the money — why?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check that your bank account details on the portal exactly match your passbook, including the IFSC code, and that the account is active. If everything looks correct, contact your institution's scholarship coordinator for help escalating it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I forgot my Aikyashree portal login details — what do I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the password-reset option on the Student Panel login page, which typically sends a reset link to your registered mobile number or email."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why was my application rejected?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common reasons include document mismatches, income-certificate issues, or not meeting the minimum marks requirement for the component you applied under. Contact your institution's scholarship desk for the specific reason in your case."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the whole process take from application to disbursement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This varies significantly based on your institution's verification speed and which disbursement batch your component falls into — there's no single fixed timeline across all five components."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I check my status without logging in, using just my application number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The portal's primary status-check method is through the Student Panel login; if a guest/application-number-only lookup is available it may be listed separately on the homepage, but login-based tracking is the more reliable method."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <span>Independent Public Information Guide</span>
+        <span>West Bengal Welfare Schemes Directory 2026</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <a href="/index.html" class="brand-logo">
+          <div class="emblem-placeholder">WB</div>
+          <div class="brand-text"><span>West Bengal Schemes Portal</span>
+            <p>Public Guide for State Welfare Initiatives</p>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="main-nav">
+          <a href="/index.html" class="body-link">Home</a>
+          <a href="/schemes/index.html" class="active">All Schemes</a>
+          <a href="/categories/index.html" class="body-link">Categories</a>
+          <a href="/blog/index.html" class="body-link">Updates</a>
+          <a href="/about/index.html" class="body-link">About Us</a>
+          <a href="/contact/index.html" class="body-link">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a>
+        <span class="separator">/</span>
+        <a href="/schemes/index.html" class="breadcrumb-link">Schemes</a>
+        <span class="separator">/</span>
+        <a href="/schemes/aikyashree-scholarship/index.html" class="breadcrumb-link">Aikyashree Scholarship</a>
+        <span class="separator">/</span>
+        <span class="current">Status Check</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <main class="page-layout">
+    <div class="container">
+      <div class="page-grid">
+        
+        <!-- Main Column -->
+        <article class="main-content">
+          <a href="/schemes/aikyashree-scholarship/index.html" class="back-link-btn">← Back to Aikyashree Scholarship Overview</a>
+
+          <!-- Hero Banner -->
+          <div class="scheme-hero">
+            <span class="scheme-badge">Status Tracking Guide</span>
+            <h1>Aikyashree Scholarship Status Check — Track Your Application (2026)</h1>
+            <div class="eeat-badge-container">
+              <span class="fact-checked-badge">Fact-Checked 2026</span>
+              <span>Fact-checked against official state notifications (wbmdfcscholarship.in) • Editorial Review: August 2026</span>
+            </div>
+            <p class="intro-text">
+              Tracking your <strong>aikyashree scholarship status check</strong> online allows you to follow your application progress through institutional verification, state sanctioning, and final Direct Benefit Transfer (DBT) bank credit.
+            </p>
+          </div>
+
+          <!-- Section 1 — Why Your Status Might Not Have Updated Yet -->
+          <section class="content-block">
+            <h2>Why Your Status Might Not Have Updated Yet</h2>
+            <p>
+              Aikyashree applications go through several distinct stages before money reaches a student's account — submission, institute verification, district-level screening, state financial sanctioning, and then final disbursement — and each stage can take time. Before assuming something has gone wrong, it helps to understand exactly where your application currently sits in this process, which is what the status-check tool shows you.
+            </p>
+            <p>
+              Students who wish to review eligibility details or apply for new components should refer to our main guide on how to <a href="/schemes/aikyashree-scholarship/index.html" class="body-link">check eligibility & how to apply</a> for Aikyashree. If you are an SC, ST, or OBC applicant searching for state scholarships, visit our dedicated <a href="/schemes/oasis-scholarship/index.html" class="body-link">Oasis Scholarship for SC/ST/OBC students</a> guide.
+            </p>
+            <p>
+              Because thousands of applications are verified across schools, madrasahs, colleges, and technical institutes simultaneously, backend database updates typically occur in periodic batches rather than in real time.
+            </p>
+          </section>
+
+          <!-- Section 2 — How to Check Your Status Online -->
+          <section class="content-block">
+            <h2>How to Check Your Status Online</h2>
+            <p>Follow these step-by-step instructions to track your application on the official portal:</p>
+            <ol>
+              <li>Visit the official portal: <a href="https://wbmdfcscholarship.in" class="body-link" target="_blank" rel="noopener noreferrer">wbmdfcscholarship.in</a>.</li>
+              <li>Log in to the <strong>Student Panel</strong> using your registered User ID and password (created during your initial registration).</li>
+              <li>Select your district (the district where your school, college, or university is physically located).</li>
+              <li>Navigate to the <strong>Application Status</strong> or <strong>Track Application</strong> section within your portal dashboard.</li>
+              <li>Your current application stage will display clearly on screen — typically showing status tags such as Submitted, Pending Institute Verification, Verified by Nodal Officer, Approved by State, or Disbursed.</li>
+              <li>If you've forgotten your login credentials, click the password-reset link on the login page to receive a recovery code via SMS on your registered mobile number.</li>
+            </ol>
+            <p>
+              Some portal updates also provide a direct guest tracking link where you can enter your Application ID and district without logging into the full student dashboard.
+            </p>
+            <p>
+              Always double-check that you select the exact district where your institution is registered; selecting your home district instead of your college district is a common cause of "Application Not Found" errors.
+            </p>
+          </section>
+
+          <!-- Section 3 — Understanding the Verification Stages -->
+          <section class="content-block">
+            <h2>Understanding the Verification Stages</h2>
+            <p>The online tracker categorizes your application into five official processing milestones:</p>
+            <ul>
+              <li><strong>Submitted:</strong> Your application has been successfully uploaded to the central portal, but your educational institution has not yet initiated document verification.</li>
+              <li><strong>Pending Institute Verification:</strong> Your school or college Nodal Officer must log into the institutional portal, verify your mark sheet, attendance, and bonafide student status, and electronically forward the application. This step depends on your institution's internal administrative speed.</li>
+              <li><strong>Verified / District Approved:</strong> Your institution has completed verification; your file has passed district-level scrutiny by the District Minority Officer (DMO) and moved to WBMDFC state headquarters.</li>
+              <li><strong>Approved / Sanctioned:</strong> Your scholarship amount has been sanctioned by WBMDFC and queued into the upcoming disbursement batch for your category.</li>
+              <li><strong>Disbursed / Paid:</strong> The financial grant has been transferred via Direct Benefit Transfer (DBT) into your Aadhaar-linked bank account through the state treasury network.</li>
+            </ul>
+            <p>
+              If an application remains in "Pending Institute Verification" status past the announced verification closing date, contact your institute's scholarship Nodal Officer immediately to request manual queue release.
+            </p>
+          </section>
+
+          <!-- Section 4 — Payment/Disbursement Status -->
+          <section class="content-block">
+            <h2>Payment/Disbursement Status</h2>
+            <p>
+              Once your application shows "Approved," the actual transfer depends on the state's disbursement batch schedule for your component (Pre-Matric, Post-Matric, MCM, TSP, or SVMCM) — these aren't necessarily processed on the same timeline across components. If your status shows "Disbursed" but the amount hasn't appeared in your account within a few working days:
+            </p>
+            <ol>
+              <li>Confirm your bank account details on the portal are correct and match your passbook exactly, including the IFSC code.</li>
+              <li>Check that your bank account is active and correctly seeded with Aadhaar in the National Payments Corporation of India (NPCI) mapper.</li>
+              <li>Verify that your bank account is not subject to credit limit restrictions (such as minor or basic savings account ceilings).</li>
+              <li>Contact your institution's scholarship coordinator, who can often escalate disbursement issues faster than an individual student contacting WBMDFC directly.</li>
+            </ol>
+            <p>
+              In cases where bank server failures cause transaction rejection, WBMDFC re-queues the disbursement once the student updates their bank credentials through the institute Nodal Officer.
+            </p>
+          </section>
+
+          <!-- Section 5 — Common Problems and Fixes -->
+          <section class="content-block">
+            <h2>Common Problems and Fixes</h2>
+            <ul>
+              <li><strong>Stuck at "Pending Institute Verification" for a long time:</strong> This is the single most common delay. Follow up directly with your school or college scholarship clerk to request that they approve your electronic record on the WBMDFC Nodal Officer portal.</li>
+              <li><strong>Login not working:</strong> Ensure you are entering your User ID (not your temporary application serial number). Use the "Forgot Password" feature if needed.</li>
+              <li><strong>Status shows "Rejected":</strong> Common causes include incorrect income certificates, failure to upload legible mark sheets, or securing below the minimum required percentage for that scholarship tier. Contact your institution's scholarship desk to view the exact rejection code.</li>
+              <li><strong>Applied for the wrong component:</strong> If you registered under the wrong category (e.g., Post-Matric instead of SVMCM), consult your college Nodal Officer before the verification window closes so the record can be corrected or unlocked.</li>
+            </ul>
+            <p>
+              For persistent portal technical issues, call the WBMDFC toll-free helpline at 1800-120-2130 during standard working hours.
+            </p>
+          </section>
+
+          <!-- Section 6 — FAQs -->
+          <section class="content-block">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How do I check my Aikyashree scholarship application status?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Log in to the Student Panel at wbmdfcscholarship.in using your registered User ID and password, then navigate to the Application Status section.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>What does "Pending Institute Verification" mean?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>It means your school or college still needs to confirm your enrolment and academic details before your application can move to the next stage — this step depends on your institution's processing speed.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>My status shows "Disbursed" but I haven't received the money — why?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Check that your bank account details on the portal exactly match your passbook, including the IFSC code, and that the account is active. If everything looks correct, contact your institution's scholarship coordinator for help escalating it.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>I forgot my Aikyashree portal login details — what do I do?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Use the password-reset option on the Student Panel login page, which typically sends a reset link to your registered mobile number or email.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Why was my application rejected?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>Common reasons include document mismatches, income-certificate issues, or not meeting the minimum marks requirement for the component you applied under. Contact your institution's scholarship desk for the specific reason in your case.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>How long does the whole process take from application to disbursement?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>This varies significantly based on your institution's verification speed and which disbursement batch your component falls into — there's no single fixed timeline across all five components.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Can I check my status without logging in, using just my application number?</span>
+                  <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer" style="display: none;">
+                  <p>The portal's primary status-check method is through the Student Panel login; if a guest/application-number-only lookup is available it may be listed separately on the homepage, but login-based tracking is the more reliable method.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Schemes Section -->
+          <section class="content-block">
+            <h2>Related Schemes</h2>
+            <div class="scheme-grid">
+              <a href="/schemes/oasis-scholarship/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Scholarship</span>
+                  <span class="scheme-card-icon">🎓</span>
+                </div>
+                <h3 class="scheme-card-title">Oasis Scholarship</h3>
+                <p class="scheme-card-summary">Dedicated scholarship portal for SC, ST, and OBC students pursuing school and higher education in West Bengal.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/shikshashree-scheme/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Education Assistance</span>
+                  <span class="scheme-card-icon">📚</span>
+                </div>
+                <h3 class="scheme-card-title">Shikshashree Scheme</h3>
+                <p class="scheme-card-summary">Financial assistance for SC and ST students in Class 5 to Class 8 to prevent school dropouts.</p>
+                <div class="scheme-card-cta">View Details & Apply →</div>
+              </a>
+              <a href="/schemes/scholarship-schemes/index.html" class="scheme-card">
+                <div class="scheme-card-header">
+                  <span class="scheme-card-badge">Category Hub</span>
+                  <span class="scheme-card-icon">🏫</span>
+                </div>
+                <h3 class="scheme-card-title">Scholarship Schemes</h3>
+                <p class="scheme-card-summary">Complete directory of state and central scholarship opportunities for West Bengal students.</p>
+                <div class="scheme-card-cta">Explore Category →</div>
+              </a>
+            </div>
+          </section>
+
+        </article>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Quick Links & Services</h3>
+            <div class="quick-links-container">
+              <a href="/schemes/aikyashree-scholarship/status-check/index.html" class="quick-link-item">
+                <span class="quick-link-icon">🔍</span>
+                <div class="quick-link-text">
+                  <span class="quick-link-title">Track Application Status</span>
+                  <span class="quick-link-sub">Official Guide & Portal</span>
+                </div>
+                <span class="quick-link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Contact -->
+        <div class="footer-col">
+          <div class="footer-brand-title">
+            <div class="footer-brand-emblem">WB</div>
+            <span>WB Schemes Portal</span>
+          </div>
+          <p class="disclaimer-text">
+            Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
+          </p>
+          <div class="footer-contact-block">
+            <div class="footer-contact-item">📧 <span>contact@wb-schemes-portal-three.vercel.app</span></div>
+            <div class="footer-contact-item">📞 <span>1800-123-4567 (Toll Free Helpline)</span></div>
+          </div>
+          <div class="footer-social-row">
+            <a href="https://facebook.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            <a href="https://twitter.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter">tw</a>
+            <a href="https://youtube.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+            <a href="https://whatsapp.com" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore Navigation -->
+        <div class="footer-col">
+          <h3>Explore Portal</h3>
+          <ul>
+            <li><a href="/index.html" class="footer-link">🏠 Home</a></li>
+            <li><a href="/schemes/index.html" class="footer-link">📋 All Schemes List</a></li>
+            <li><a href="/categories/index.html" class="footer-link">🏛️ Scheme Categories</a></li>
+            <li><a href="/blog/index.html" class="footer-link">📰 Latest Updates</a></li>
+            <li><a href="/schemes/scholarship-schemes/index.html" class="footer-link">🎓 Scholarship Schemes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Services -->
+        <div class="footer-col">
+          <h3>Quick Services</h3>
+          <ul>
+            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">🔍 Status Check Guides</a></li>
+            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">💳 E-Card Downloads</a></li>
+            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">📝 Application Forms</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About Us</a></li>
+            <li><a href="/contact/index.html" class="footer-link">✉️ Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Disclaimers -->
+        <div class="footer-col">
+          <h3>Legal & Disclaimers</h3>
+          <ul>
+            <li><a href="/disclaimer/index.html" class="footer-link">⚠️ Official Disclaimer →</a></li>
+            <li><a href="/privacy-policy/index.html" class="footer-link">🔒 Privacy Policy →</a></li>
+            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">🏛️ Official WB Portal →</a></li>
+            <li><a href="/about/index.html" class="footer-link">ℹ️ About This Initiative →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 WB Schemes Portal. All rights reserved.</p>
+        <span class="footer-bottom-tagline">Public Awareness Initiative for the Citizens of West Bengal</span>
+        <div class="footer-bottom-links">
+          <a class="body-link" href="/sitemap.xml">Sitemap</a>
+          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>
+          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>
+          <a class="body-link" href="/contact/index.html">Help Desk</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>`;
+
+fs.writeFileSync(page12Path, page12Html, 'utf8');
+const newWordCountPage12 = getArticleWordCount(page12Path);
+console.log(`Page 12 Updated: ${oldWordCountPage12} words -> ${newWordCountPage12} words`);
