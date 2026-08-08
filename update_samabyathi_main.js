@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 25: /schemes/samabyathi-prakalpa/index.html
+// -------------------------------------------------------------------------
+const page25Path = path.join(rootDir, 'schemes', 'samabyathi-prakalpa', 'index.html');
+const oldWordCountPage25 = getArticleWordCount(page25Path);
+
+const page25Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/samabyathi-prakalpa/">
+  <link rel="canonical" href="${domain}/schemes/samabyathi-prakalpa/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Samabyathi Prakalpa Scheme 2026 — ₹2,000 Funeral Assistance">
   <meta property="og:description" content="Samabyathi Prakalpa guide — West Bengal's ₹2,000 one-time funeral/burial assistance scheme for poor families. Eligibility, documents & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/samabyathi-prakalpa/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/samabyathi-prakalpa/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Samabyathi Prakalpa Scheme 2026 — ₹2,000 Funeral Assistance">
@@ -347,32 +367,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Emergency Cash Disbursement Protocols</h2>
-  <p>
-    The unique administrative structure of Samabyathi Prakalpa prioritizes immediate liquidity for bereaved families during emotional crises:
-  </p>
-  <ul>
-    <li><strong>Imprest Fund Management:</strong> BDO offices and Municipalities maintain dedicated cash imprest funds allocated under Panchayat & Rural Development and Municipal Affairs Department budgets.</li>
-    <li><strong>On-Site Designated Disbursing Officers:</strong> Authorized burning ghat registrars, Gram Panchayat Secretaries, and Municipal sanitary inspectors are empowered to disburse ₹2,000 cash directly upon inspecting the burial/cremation application.</li>
-    <li><strong>Exemption from Digital Delays:</strong> By bypassing standard banking payment gateways, the scheme prevents delays caused by IFSC clearance or weekend bank closures during emergency last rites.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Humanitarian Guidelines for Unclaimed Bodies and Neighbor Submissions</h2>
-  <p>
-    The Government of West Bengal incorporates compassionate clauses to ensure dignified last rites for destitute or isolated individuals:
-  </p>
-  <ul>
-    <li><strong>Neighbor / Good Samaritan Eligibility:</strong> If a deceased poor resident has no surviving family members present, any attending neighbor or community member arranging cremation/burial rites can apply for the ₹2,000 grant.</li>
-    <li><strong>Simplified Local Certification:</strong> A simple certification from the local Gram Panchayat Member, Ward Councillor, or Police Officer confirms the applicant's role in conducting the funeral.</li>
-    <li><strong>Zero Fee at Electric Crematoria:</strong> Many municipal electric crematoria waive standard furnace fees for Samabyathi applicants upon presentation of the plain-paper application.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -480,4 +475,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page25Path, page25Html, 'utf8');
+const newWordCountPage25 = getArticleWordCount(page25Path);
+console.log(`Page 25 Updated: ${oldWordCountPage25} words -> ${newWordCountPage25} words`);
