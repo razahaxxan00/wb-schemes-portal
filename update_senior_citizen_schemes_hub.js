@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 42: /schemes/senior-citizen-schemes/index.html
+// -------------------------------------------------------------------------
+const page42Path = path.join(rootDir, 'schemes', 'senior-citizen-schemes', 'index.html');
+const oldWordCountPage42 = getArticleWordCount(page42Path);
+
+const page42Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/senior-citizen-schemes/">
+  <link rel="canonical" href="${domain}/schemes/senior-citizen-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Senior Citizen Schemes West Bengal 2026 — Pension & Care">
   <meta property="og:description" content="All West Bengal government schemes for senior citizens — old age pension, Senior Citizen Card, old age homes, and health & travel concessions.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/senior-citizen-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/senior-citizen-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Senior Citizen Schemes West Bengal 2026 — Pension & Care">
@@ -364,47 +384,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Maintenance Tribunals under Maintenance of Parents & Senior Citizens Act</h2>
-  <p>
-    To protect vulnerable elderly residents from financial neglect, eviction, or property coercion by children or legal heirs:
-  </p>
-  <ul>
-    <li><strong>Sub-Divisional Maintenance Tribunals:</strong> Senior citizens can file summary claims before the Sub-Divisional Officer (SDO) Maintenance Tribunal for monthly maintenance allowances (up to ₹10,000 per month) from children or legal heirs.</li>
-    <li><strong>Revocation of Property Transfers:</strong> Property conditional transfers executed by senior citizens can be declared void by the Tribunal if children fail to provide basic physical amenities and care.</li>
-    <li><strong>Protection Against Forcible Eviction:</strong> Local police stations and District Magistrates are legally empowered to intervene and reinstate senior citizens facing illegal home eviction.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Samabyathi Prakalpa — Emergency Bereavement Financial Aid</h2>
-  <p>
-    To ensure dignified funeral rites for deceased senior citizens from impoverished families across West Bengal:
-  </p>
-  <ul>
-    <li><strong>₹2,000 One-Time Ex-Gratia Grant:</strong> Immediate cash assistance of ₹2,000 is disbursed to bereaved low-income family members or caretakers to perform cremation or burial rites.</li>
-    <li><strong>On-the-Spot Disbursement:</strong> Processed through local Gram Panchayat offices, Municipalities, or cremation ground administrative counters upon presenting a death declaration.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Geriatric Care Wards and Tele-Medicine Helplines for Seniors</h2>
-  <p>
-    Specialized medical facilities are provided for elderly patients across medical colleges and district hospitals:
-  </p>
-  <ul>
-    <li><strong>Dedicated Geriatric OPD Counters:</strong> Senior citizens receive priority registration, non-queue pharmacy counters, and dedicated OPD consultation desks in all state medical colleges.</li>
-    <li><strong>Elder Line Helpline (14567):</strong> National toll-free helpline providing tele-counseling, legal advice, emergency rescue, and information on old age homes for senior citizens across West Bengal.</li>
-  </ul>
-</section>
-
-
-<p>
-  Comprehensive senior citizen welfare policies ensure that elderly residents across West Bengal enjoy financial security, quality medical care, legal protection, and social respect in their golden years.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -512,4 +492,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page42Path, page42Html, 'utf8');
+const newWordCountPage42 = getArticleWordCount(page42Path);
+console.log(`Page 42 Updated: ${oldWordCountPage42} words -> ${newWordCountPage42} words`);
