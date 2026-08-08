@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 38: /schemes/health-schemes/index.html
+// -------------------------------------------------------------------------
+const page38Path = path.join(rootDir, 'schemes', 'health-schemes', 'index.html');
+const oldWordCountPage38 = getArticleWordCount(page38Path);
+
+const page38Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/health-schemes/">
+  <link rel="canonical" href="${domain}/schemes/health-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Health Schemes 2026 — Swasthya Sathi & Ayushman">
   <meta property="og:description" content="Complete guide to West Bengal health schemes 2026 — Swasthya Sathi's transition to Ayushman Bharat, coverage, eligibility & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/health-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/health-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Health Schemes 2026 — Swasthya Sathi & Ayushman">
@@ -348,32 +368,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Empanelled Hospital Kiosks and Swasthya Sathi Mitras</h2>
-  <p>
-    To assist patients during emergency or planned hospital admissions across West Bengal:
-  </p>
-  <ul>
-    <li><strong>Dedicated Kiosks in All Medical Colleges:</strong> Every government hospital, district secondary hospital, and major private nursing home houses a Swasthya Sathi helpdesk kiosk.</li>
-    <li><strong>Swasthya Sathi Mitras:</strong> Stationed executive staff assist cardholders with biometric thumbprint validation, smart card activation, pre-authorization claims, and discharge package clearance.</li>
-    <li><strong>24x7 Toll-Free Medical Helpline (1800-345-5384):</strong> Beneficiaries can verify hospital empanelment status, lodge refusal complaints, or track pre-authorization approvals anytime.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Coverage Packages for Specialized Secondary & Tertiary Procedures</h2>
-  <p>
-    State health insurance packages cover over 1,900 pre-defined medical procedures across clinical specialties:
-  </p>
-  <ul>
-    <li><strong>Cardiology & Cardiothoracic Surgeries:</strong> Cashless coverage for coronary angioplasty, pacemaker implantation, and open-heart valve replacement procedures.</li>
-    <li><strong>Oncology & Chemotherapy Packages:</strong> Medical, surgical, and radiation oncology treatments including chemotherapy cycles and PET scans.</li>
-    <li><strong>Orthopedic Surgeries & Joint Replacements:</strong> Major orthopedic interventions, trauma care, and joint replacement surgeries without out-of-pocket payments.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -481,4 +476,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page38Path, page38Html, 'utf8');
+const newWordCountPage38 = getArticleWordCount(page38Path);
+console.log(`Page 38 Updated: ${oldWordCountPage38} words -> ${newWordCountPage38} words`);
