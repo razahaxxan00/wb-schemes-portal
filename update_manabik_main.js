@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 22: /schemes/manabik-pension-scheme/index.html
+// -------------------------------------------------------------------------
+const page22Path = path.join(rootDir, 'schemes', 'manabik-pension-scheme', 'index.html');
+const oldWordCountPage22 = getArticleWordCount(page22Path);
+
+const page22Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/manabik-pension-scheme/">
+  <link rel="canonical" href="${domain}/schemes/manabik-pension-scheme/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Manabik Pension Scheme 2026 — ₹1,500/Month for Disabled">
   <meta property="og:description" content="Manabik Pension Scheme guide — monthly disability pension in West Bengal, now revised to ₹1,500. Eligibility, documents & how to apply explained.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/manabik-pension-scheme/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/manabik-pension-scheme/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Manabik Pension Scheme 2026 — ₹1,500/Month for Disabled">
@@ -335,32 +355,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Unique Disability ID (UDID) Card Integration</h2>
-  <p>
-    Under recent digital governance initiatives in West Bengal, the Manabik Pension application process aligns with the central Unique Disability ID (UDID) project:
-  </p>
-  <ul>
-    <li><strong>Universal Disability Access:</strong> Applicants possessing a valid 18-digit UDID card issued by the Ministry of Social Justice and Empowerment can quote their UDID number directly on Form P.</li>
-    <li><strong>Simplified Verification:</strong> UDID card verification speeds up block-level inquiry since disability percentage, medical board approval, and applicant credentials are automatically cross-checked on the Swavlamban portal.</li>
-    <li><strong>Digital Certificate Archiving:</strong> Applicants without a UDID card are assisted at local BDO offices and Duare Sarkar camps to enroll for UDID generation alongside their pension registration.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Special Priority Processing and Grievance Redressal</h2>
-  <p>
-    The Department of Women and Child Development and Social Welfare mandates priority field processing for vulnerable applicant categories:
-  </p>
-  <ul>
-    <li><strong>Terminal Illness & Severe Disability:</strong> Applicants with terminal illnesses or severe locomotor/neurological conditions are prioritized for immediate field verification within 15 days of Form P submission.</li>
-    <li><strong>Duare Sarkar On-the-Spot Registration:</strong> During seasonal Duare Sarkar outreach camps, local medical officers conduct physical disability evaluations on-site to issue provisional certificates for pension sanction.</li>
-    <li><strong>Jai Bangla Helpdesk Tracking:</strong> Beneficiaries can check their application status or log payment non-receipt grievances by calling the state toll-free helpline at 1800-345-5505 or visiting their local Block Social Welfare Officer.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -460,4 +455,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page22Path, page22Html, 'utf8');
+const newWordCountPage22 = getArticleWordCount(page22Path);
+console.log(`Page 22 Updated: ${oldWordCountPage22} words -> ${newWordCountPage22} words`);
