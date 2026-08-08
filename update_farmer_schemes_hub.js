@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 33: /schemes/farmer-schemes/index.html
+// -------------------------------------------------------------------------
+const page33Path = path.join(rootDir, 'schemes', 'farmer-schemes', 'index.html');
+const oldWordCountPage33 = getArticleWordCount(page33Path);
+
+const page33Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/farmer-schemes/">
+  <link rel="canonical" href="${domain}/schemes/farmer-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Farmer Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government schemes for farmers 2026 — Krishak Bandhu, Bangla Shasya Bima & more. Eligibility, amount & apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/farmer-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/farmer-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Farmer Schemes 2026 — Full List & Guide">
@@ -310,80 +330,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Krishak Bandhu Death Benefit Insurance Protocol (₹2 Lakh Assistance)</h2>
-  <p>
-    Beyond seasonal crop input assistance, Krishak Bandhu includes a comprehensive life assurance component for farming households across West Bengal:
-  </p>
-  <ul>
-    <li><strong>Universal Coverage (Ages 18–60):</strong> In the unfortunate event of the death of a registered farmer or sharecropper aged between 18 and 60, the legal nominee receives a one-time ex-gratia grant of ₹2,00,000.</li>
-    <li><strong>No Premium Cost:</strong> The entire insurance coverage premium is borne by the Department of Agriculture, requiring no annual premium payments from the farmer.</li>
-    <li><strong>Claim Submission Timeline:</strong> Nominees must submit the official claim form along with the death certificate, land records, and Aadhaar copy to the Block Development Officer (BDO) or Assistant Director of Agriculture (ADA) within 30 days of death.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Crop Cutting Experiments and Satellite Remote Sensing</h2>
-  <p>
-    Bangla Shasya Bima relies on modern agricultural technology to calculate area-wide yield losses and release compensation without individual field friction:
-  </p>
-  <ul>
-    <li><strong>Gram Panchayat Area Yield Assessment:</strong> Crop loss is evaluated at the Mouza or Gram Panchayat unit level using randomized Crop Cutting Experiments (CCE) conducted by agricultural officers.</li>
-    <li><strong>Satellite NDVI Vegetation Index:</strong> In cases of widespread monsoon flooding or tropical cyclones (such as Remal or Amphan), satellite vegetation index maps from RSAC (Remote Sensing Application Centre) cross-verify field damage.</li>
-    <li><strong>Direct Benefit Transfer to Bank Accounts:</strong> Verified claim amounts are credited electronically to Aadhaar-seeded single bank accounts via IFMS portal automation.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Role of Krishi Praukti Sahayaks (KPS) and Local Officers</h2>
-  <p>
-    Frontline agricultural extension officers play an essential role in guiding farmers through scheme registration and documentation:
-  </p>
-  <ul>
-    <li><strong>Cultivation Verification for Bargadars:</strong> Krishi Praukti Sahayaks (KPS) issue official cultivation certificates for sharecroppers and tenant farmers lacking formal land Parcha titles.</li>
-    <li><strong>e-POS and Portal Entry Support:</strong> Local KPS officers assist farmers with land area verification, crop code selection, and e-Kisan portal updates during seasonal enrolment drives.</li>
-    <li><strong>Grievance Resolution:</strong> Farmers facing payment holds due to bank account mismatch can visit their Block Assistant Director of Agriculture (ADA) office for manual re-verification.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Farm Mechanization Subsidies and Equipment Custom Hiring Centers</h2>
-  <p>
-    To boost agricultural productivity and reduce manual labor costs, the Department of Agriculture provides financial subsidies for farm equipment purchases:
-  </p>
-  <ul>
-    <li><strong>Financial Assistance for Farm Machinery (FOTA):</strong> Small and marginal farmers receive up to 50% capital subsidy (max ₹10,000 to ₹50,000) for purchasing power tillers, reapers, and seed drills.</li>
-    <li><strong>Custom Hiring Centres (CHC):</strong> Farmers' Farmer Producer Organizations (FPOs) and Self-Help Groups receive 40% to 80% subsidies (up to ₹20 Lakh) to establish Custom Hiring Centres, allowing local cultivators to rent tractors and harvesters at nominal hourly fees.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Soil Health Cards and Micro-Irrigation Subsidies</h2>
-  <p>
-    Sustainable agriculture initiatives help farmers optimize soil fertility and water resources:
-  </p>
-  <ul>
-    <li><strong>Soil Health Testing:</strong> Free soil sample testing laboratories across all blocks issue micro-nutrient recommendations, helping farmers reduce unnecessary fertilizer expenditure.</li>
-    <li><strong>Per Drop More Crop (Micro-Irrigation):</strong> Subsidies up to 80% are provided for installing drip and sprinkler irrigation systems in drought-prone districts like Bankura, Purulia, and Paschim Medinipur.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Kisan Credit Card (KCC) and Institutional Credit Linkages</h2>
-  <p>
-    To protect farming households from high-interest informal moneylenders, the West Bengal Department of Agriculture collaborates with Commercial Banks, Regional Rural Banks (RRBs), and District Central Cooperative Banks (DCCBs) to issue Kisan Credit Cards. KCC holders receive concessional crop loans up to ₹3 Lakh at an effective interest rate of 4% per annum (with prompt repayment interest subventions), securing seasonal liquidity for seeds, fertilizers, diesel, and labor payments across Kharif and Rabi cycles.
-  </p>
-</section>
-
-
-<p>
-  Enrolling in state farmer welfare programs ensures long-term agricultural stability, protecting household livelihoods against climate volatility across all districts of West Bengal.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -491,4 +438,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page33Path, page33Html, 'utf8');
+const newWordCountPage33 = getArticleWordCount(page33Path);
+console.log(`Page 33 Updated: ${oldWordCountPage33} words -> ${newWordCountPage33} words`);
