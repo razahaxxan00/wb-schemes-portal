@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getBodyWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<main[\s\S]*?<\/main>/i) || content.match(/<body[\s\S]*?<\/body>/i);
+  if (!match) return 0;
+  const text = match[0].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 44: index.html (Homepage)
+// -------------------------------------------------------------------------
+const homepagePath = path.join(rootDir, 'index.html');
+const oldWordCountPage44 = getBodyWordCount(homepagePath);
+
+const homepageHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,15 +30,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/">
+  <link rel="canonical" href="${domain}/">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="DeuzhHB1cbMAjGOkZdFcBGXGWHMHpn-TbDlMnMK5upM" />
   
   <meta property="og:title" content="West Bengal Government Schemes 2026 — Full List & Apply">
   <meta property="og:description" content="Find every West Bengal government scheme in one place — eligibility, benefits, and how to apply, check status, or download your card, in plain language.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Government Schemes 2026 — Full List & Apply">
@@ -31,19 +51,19 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://wb-schemes-portal-three.vercel.app/#organization",
+        "@id": "${domain}/#organization",
         "name": "West Bengal Schemes Portal",
-        "url": "https://wb-schemes-portal-three.vercel.app/",
-        "logo": "https://wb-schemes-portal-three.vercel.app/images/logo.png",
+        "url": "${domain}/",
+        "logo": "${domain}/images/logo.png",
         "sameAs": []
       },
       {
         "@type": "WebSite",
-        "@id": "https://wb-schemes-portal-three.vercel.app/#website",
-        "url": "https://wb-schemes-portal-three.vercel.app/",
+        "@id": "${domain}/#website",
+        "url": "${domain}/",
         "name": "West Bengal Schemes Portal",
         "publisher": {
-          "@id": "https://wb-schemes-portal-three.vercel.app/#organization"
+          "@id": "${domain}/#organization"
         }
       },
       {
@@ -508,62 +528,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Key Digital Portals & On-Ground Outreach Channels</h2>
-  <p>
-    Accessing West Bengal government schemes relies on a combination of online web portals and door-step outreach initiatives:
-  </p>
-  <ul>
-    <li><strong>Duare Sarkar Outreach Camps:</strong> Seasonal administrative camps organized across every Gram Panchayat and Municipal ward allow citizens to submit applications, complete Aadhaar biometric verification, and check scheme enrolment status in person.</li>
-    <li><strong>Banglar Shiksha Portal (banglarshiksha.gov.in):</strong> Centralized educational management system tracking student enrolment, textbook delivery, bicycle allocation under Sabooj Sathi, and school scholarship applications.</li>
-    <li><strong>West Bengal e-District Portal (edistrict.wb.gov.in):</strong> Online gateway for issuing official income certificates, residential proof, caste certificates (SC/ST/OBC), and local governance clearances required across welfare applications.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Direct Benefit Transfer (DBT) & NPCI Bank Account Seeding</h2>
-  <p>
-    Over 95% of state cash assistance schemes transfer benefits directly to citizen bank accounts via automated clearing networks:
-  </p>
-  <ul>
-    <li><strong>Aadhaar Payment Bridge System (APBS):</strong> Ensures monthly cash stipends (Annapurna Bhandar, Jai Bangla, Manabik) are credited seamlessly without bank branch delays.</li>
-    <li><strong>NPCI Bank Account Mapping:</strong> Beneficiaries must ensure their primary savings account is linked to Aadhaar and mapped on the National Payments Corporation of India (NPCI) mapper to prevent credit holds.</li>
-    <li><strong>WBIFMS Automated Clearing:</strong> Government treasury payments are processed electronically on fixed monthly schedules, providing SMS notifications upon successful credit.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Inter-Departmental Verification and Data Privacy Protection</h2>
-  <p>
-    To protect citizen data and prevent fraudulent duplicate applications:
-  </p>
-  <ul>
-    <li><strong>Automated Database Cross-Checking:</strong> Applications submitted at Duare Sarkar or online portals are cross-verified against state databases (Ration Card, Land Records, Caste Certificate Registry).</li>
-    <li><strong>Data Encryption & Security Protocols:</strong> Official portals utilize SSL encryption and OTP-based mobile authentication to safeguard applicant personal details and bank credentials.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Multi-Lingual Public Information & Accessibility Commitment</h2>
-  <p>
-    Our independent portal is committed to making public welfare information accessible to every resident of West Bengal:
-  </p>
-  <ul>
-    <li><strong>Bengali and English Guidance:</strong> Key scheme terms, eligibility rules, and application procedures are explained in clear, accessible language for both urban and rural families.</li>
-    <li><strong>Mobile-Optimized Experience:</strong> Designed for smooth browsing across all mobile devices, low-bandwidth connections, and screen readers.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Continuous Updates & Policy Verification Standards</h2>
-  <p>
-    As government notifications, budget announcements, and portal URLs are updated throughout 2026, our editorial team regularly verifies facts against official state department publications to ensure accurate guidance.
-  </p>
-</section>
-
-</article>
+        </article>
 
       </div>
     </div>
@@ -646,4 +611,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(homepagePath, homepageHtml, 'utf8');
+const newWordCountPage44 = getBodyWordCount(homepagePath);
+console.log(`Page 44 (Homepage) Updated: ${oldWordCountPage44} words -> ${newWordCountPage44} words`);
