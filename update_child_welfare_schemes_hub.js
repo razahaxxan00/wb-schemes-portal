@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 43: /schemes/child-welfare-schemes/index.html
+// -------------------------------------------------------------------------
+const page43Path = path.join(rootDir, 'schemes', 'child-welfare-schemes', 'index.html');
+const oldWordCountPage43 = getArticleWordCount(page43Path);
+
+const page43Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/child-welfare-schemes/">
+  <link rel="canonical" href="${domain}/schemes/child-welfare-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Child Welfare Schemes West Bengal 2026 — Full List">
   <meta property="og:description" content="All West Bengal government schemes for children — Sishu Sathi, Kanyashree, Sabooj Sathi, nutrition support, and free child healthcare programmes.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/child-welfare-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/child-welfare-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Child Welfare Schemes West Bengal 2026 — Full List">
@@ -79,7 +99,7 @@
       },
       {
         "@type": "Question",
-        "name": "Does food security support count as a "child welfare" scheme?",
+        "name": "Does food security support count as a \"child welfare\" scheme?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Indirectly, yes — Khadya Sathi's subsidised food grain access supports overall household nutrition, which directly affects children's nutritional outcomes, even though it isn't a child-specific scheme on paper."
@@ -364,47 +384,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Integrated Child Protection Scheme (ICPS) and Non-Institutional Foster Care</h2>
-  <p>
-    For orphaned, abandoned, or destitute children needing institutional or family-based rehabilitation:
-  </p>
-  <ul>
-    <li><strong>State Child Care Institutions (CCIs):</strong> Provides free shelter, education, medical care, and vocational training for vulnerable children in government and NGO-run specialized adoption agencies (SAAs).</li>
-    <li><strong>Monthly Foster Care & Sponsorship Stipend:</strong> Families providing foster care to vulnerable or orphaned children receive a monthly financial sponsorship grant of ₹4,000 per child under ICPS guidelines.</li>
-    <li><strong>Childline Toll-Free Helpline (1098):</strong> 24x7 emergency helpline for reporting child labor, trafficking, early marriage, or physical abuse, integrated with District Child Protection Units (DCPUs).</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Poshan Abhiyaan & Special Take-Home Ration (THR) Formulations</h2>
-  <p>
-    To eradicate severe acute malnutrition (SAM) among infants and young children across West Bengal:
-  </p>
-  <ul>
-    <li><strong>Enhanced Fortified Take-Home Rations:</strong> Anganwadi centres distribute micro-nutrient fortified khichdi mix, lentils, and eggs specifically tailored for malnourished infants aged 6 to 36 months.</li>
-    <li><strong>Nutritional Rehabilitation Centres (NRCs):</strong> Severely malnourished children are admitted to district hospital NRCs for intensive medical treatment, therapeutic feeding, and parental caregiving stipends.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>State Commission for Protection of Child Rights (WBSCPCR) Oversight</h2>
-  <p>
-    The statutory child rights commission enforces legal safeguards for all children across the state:
-  </p>
-  <ul>
-    <li><strong>RTE Act Compliance & Anti-Dropout Monitoring:</strong> Audits government and private schools to enforce the 25% free seat reservation for economically disadvantaged children under the Right to Education Act.</li>
-    <li><strong>POCSO Act Legal Support:</strong> Provides legal counseling, psychological support, and victim compensation processing for child abuse survivors.</li>
-  </ul>
-</section>
-
-
-<p>
-  Comprehensive child protection, specialized healthcare, and early nutrition programs work together to ensure that every child in West Bengal grows up healthy, educated, and protected from economic hardship.
-</p>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -512,4 +492,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page43Path, page43Html, 'utf8');
+const newWordCountPage43 = getArticleWordCount(page43Path);
+console.log(`Page 43 Updated: ${oldWordCountPage43} words -> ${newWordCountPage43} words`);
