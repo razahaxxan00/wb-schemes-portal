@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 26: /schemes/shikshashree-scheme/index.html
+// -------------------------------------------------------------------------
+const page26Path = path.join(rootDir, 'schemes', 'shikshashree-scheme', 'index.html');
+const oldWordCountPage26 = getArticleWordCount(page26Path);
+
+const page26Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/shikshashree-scheme/">
+  <link rel="canonical" href="${domain}/schemes/shikshashree-scheme/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Shikshashree Scheme 2026 — SC/ST Scholarship, Amount & Apply">
   <meta property="og:description" content="Shikshashree Scheme guide — pre-matric scholarship for SC/ST students in Classes 5–8 in West Bengal. Eligibility, amount, documents & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/shikshashree-scheme/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/shikshashree-scheme/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shikshashree Scheme 2026 — SC/ST Scholarship, Amount & Apply">
@@ -352,32 +372,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Bank Account NPCI Seeding and Direct Benefit Transfer (DBT)</h2>
-  <p>
-    Smooth disbursement of the Shikshashree scholarship requires accurate banking data alignment under National Payments Corporation of India (NPCI) protocols:
-  </p>
-  <ul>
-    <li><strong>Aadhaar-Seeded Single Bank Account:</strong> The student (or joint account with a parent/guardian) must have an active bank account linked and seeded with their Aadhaar number to receive DBT credits.</li>
-    <li><strong>Zero-Balance Student Savings Accounts:</strong> Public sector banks across West Bengal facilitate zero-balance basic savings bank deposit (BSBD) accounts specifically for scholarship beneficiaries.</li>
-    <li><strong>Public Financial Management System (PFMS) Verification:</strong> Institutional entries are cross-verified via PFMS to eliminate duplicate payments across multiple state student schemes.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Institutional Master Mapping on OASIS Portal</h2>
-  <p>
-    The Backward Classes Welfare Department enforces strict quality checks across government and aided schools during annual processing:
-  </p>
-  <ul>
-    <li><strong>School User ID & Password:</strong> Every recognized upper primary school is assigned dedicated OASIS credentials to upload student lists and verify caste certificates.</li>
-    <li><strong>District Inspector of Schools Verification:</strong> Uploaded application batches undergo secondary auditing at the office of the District Inspector (D.I.) of Schools before final sanction.</li>
-    <li><strong>Grievance Resolution for Delayed Sanctions:</strong> Parents can query scholarship disbursement status through the OASIS helpline or visit the local Block Development Office (BDO) Backward Classes Welfare section.</li>
-  </ul>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -477,4 +472,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page26Path, page26Html, 'utf8');
+const newWordCountPage26 = getArticleWordCount(page26Path);
+console.log(`Page 26 Updated: ${oldWordCountPage26} words -> ${newWordCountPage26} words`);
