@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i);
+  if (!match) return 0;
+  const text = match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 35: /schemes/scholarship-schemes/index.html
+// -------------------------------------------------------------------------
+const page35Path = path.join(rootDir, 'schemes', 'scholarship-schemes', 'index.html');
+const oldWordCountPage35 = getArticleWordCount(page35Path);
+
+const page35Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/schemes/scholarship-schemes/">
+  <link rel="canonical" href="${domain}/schemes/scholarship-schemes/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Scholarship Schemes 2026 — Full List & Guide">
   <meta property="og:description" content="Complete list of West Bengal government scholarships 2026 — Kanyashree, Shikshashree, Oasis, Aikyashree & more. Eligibility, amount & how to apply.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/schemes/scholarship-schemes/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/schemes/scholarship-schemes/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Scholarship Schemes 2026 — Full List & Guide">
@@ -373,75 +393,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Swami Vivekananda Merit-cum-Means (SVMCM) Scholarship Framework</h2>
-  <p>
-    For high-performing students pursuing higher secondary, undergraduate, postgraduate, and doctoral studies in West Bengal:
-  </p>
-  <ul>
-    <li><strong>Merit Criterion (60%+ Marks):</strong> Students scoring 60% or higher marks in Madhyamik, Higher Secondary, or undergraduate degree examinations qualify for merit-based financial stipends.</li>
-    <li><strong>Monthly Financial Support Rates:</strong> Grants range from ₹1,000 per month for Higher Secondary students up to ₹5,000 per month for M.Phil and Ph.D. scholars across general, technical, and medical streams.</li>
-    <li><strong>Bikash Bhavan Web Portal (svmcm.wbhed.gov.in):</strong> Applications are submitted directly on the official Higher Education Department portal with digital mark sheet verification.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Income Certificate Issuance Guidelines for Scholarship Applicants</h2>
-  <p>
-    Since most state scholarships require proof of family income below specific annual ceilings (₹1.0 Lakh to ₹2.5 Lakh), applicants must submit valid revenue certificates:
-  </p>
-  <ul>
-    <li><strong>Competent Issuing Authorities:</strong> Income certificates must be issued by a Block Development Officer (BDO), Sub-Divisional Officer (SDO), Joint BDO, or Executive Officer of a Municipality/Corporation.</li>
-    <li><strong>Pradhan / Councillor Recommendations:</strong> Certificates issued by Gram Panchayat Pradhans or Municipal Councillors serve as preliminary recommendations and must be countersigned by BDO/SDO officers.</li>
-    <li><strong>e-District Digital Certificate Portal:</strong> Applicants can request digital income certificates online through the West Bengal e-District portal (edistrict.wb.gov.in) using Aadhaar authentication.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Audit and Physical Document Verification Protocols</h2>
-  <p>
-    To ensure transparent disbursement and prevent duplicate claims across multiple portals:
-  </p>
-  <ul>
-    <li><strong>Institutional Level Verification (Level 1):</strong> School headmasters and college principals verify candidate mark sheets, caste certificates, and admission receipts before institutional portal approval.</li>
-    <li><strong>District Welfare Officer Inspection (Level 2):</strong> District Inspectors of Schools (DI) and Backward Classes Welfare officers conduct sample physical document audits prior to treasury fund release.</li>
-    <li><strong>Single Scholarship Rule Compliance:</strong> Automated cross-checking across Oasis, Aikyashree, and SVMCM database servers blocks duplicate disbursements for the same academic year.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Hosteller vs. Day Scholar Maintenance Rates Comparison</h2>
-  <p>
-    Scholarship amounts under state portals like Oasis and Aikyashree differentiate between day scholars and students residing in recognized hostels:
-  </p>
-  <ul>
-    <li><strong>Day Scholar Allowances:</strong> Cover basic tuition fees, book purchases, and routine school transportation, ranging from ₹1,000 to ₹5,500 per annum across secondary and degree levels.</li>
-    <li><strong>Hosteller Maintenance Rates:</strong> Provide enhanced monthly maintenance stipends (up to ₹1,200/month or ₹14,400/year) to cover mess charges and hostel accommodation expenses for students residing away from home.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Special Disability Reader Allowances and Special Equipment Support</h2>
-  <p>
-    Students with benchmark disabilities (40% or higher) receiving state scholarships qualify for additional supportive allowances:
-  </p>
-  <ul>
-    <li><strong>Reader Allowance for Visually Impaired Trainees:</strong> Visually impaired scholars receive additional monthly allowances (₹1,000 to ₹2,000/month) to compensate reader assistants.</li>
-    <li><strong>Escort and Prosthetic Device Support:</strong> Orthopedically or hearing-impaired students receive one-time grants for purchasing hearing aids, wheelchairs, and specialized learning devices under Social Welfare Department guidelines.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Timely Application Renewal and Help Desk Channels</h2>
-  <p>
-    To maintain uninterrupted annual scholarship disbursements, students must submit online renewal applications immediately after passing end-of-year board or university examinations. For technical support, password resets, or bank account update queries, candidates can visit their institution's scholarship desk or call the Department of Higher Education toll-free helpline at 1800-102-8014.
-  </p>
-</section>
-
-</article>
+        </article>
 
         <!-- Sidebar Column -->
         <aside class="sidebar">
@@ -549,4 +501,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(page35Path, page35Html, 'utf8');
+const newWordCountPage35 = getArticleWordCount(page35Path);
+console.log(`Page 35 Updated: ${oldWordCountPage35} words -> ${newWordCountPage35} words`);
