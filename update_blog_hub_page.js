@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+const domain = 'https://wb-schemes-portal-three.vercel.app';
+
+function getArticleWordCount(file) {
+  const content = fs.readFileSync(file, 'utf8');
+  const match = content.match(/<article class="main-content">([\s\S]*?)<\/article>/i) || content.match(/<main[\s\S]*?<\/main>/i);
+  if (!match) return 0;
+  const text = match[0].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.split(' ').length;
+}
+
+// -------------------------------------------------------------------------
+// PAGE 45: blog/index.html
+// -------------------------------------------------------------------------
+const blogHubPath = path.join(rootDir, 'blog', 'index.html');
+const oldWordCountBlogHub = getArticleWordCount(blogHubPath);
+
+const blogHubHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +30,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/blog/">
+  <link rel="canonical" href="${domain}/blog/">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="West Bengal Schemes Blog — Updates, Guides & Explainers">
   <meta property="og:description" content="Latest updates, deadline reminders, and plain-language guides on West Bengal government schemes — Krishak Bandhu, Swasthya Sathi, Lakshmir Bhandar & more.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/blog/">
-  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta property="og:url" content="${domain}/blog/">
+  <meta property="og:image" content="${domain}/images/og-default.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="West Bengal Schemes Blog — Updates, Guides & Explainers">
@@ -147,7 +167,7 @@
               Government scheme rules change more often than most people realise — eligibility criteria get revised, application deadlines shift, portals get replaced, and entire schemes sometimes get renamed or restructured, as West Bengal saw in 2026 with the transition from Swasthya Sathi to Ayushman Bharat and from Lakshmir Bhandar to Annapurna Bhandar. Our main scheme guides are kept updated to reflect these changes, but a lot of useful context doesn't fit neatly into a single scheme's eligibility page — the "why" behind a policy shift, a walkthrough comparing two similar schemes, or a heads-up before an application deadline closes.
             </p>
             <p>
-              That's what this blog is for: shorter, more current pieces that sit alongside our main scheme guides, helping you stay on top of what's actually changing and what it means for you. You can <a href="/schemes/index.html" class="body-link">browse all schemes</a> or <a href="/categories/index.html" class="body-link">browse by category</a> to access individual reference guides across agriculture, health, education, and pensions. Return to <a href="/index.html" class="body-link">Home</a> at any time to explore our interactive eligibility checker and state welfare directory. Every article published on our portal undergoes thorough editorial review and verification against official Government of West Bengal department notifications.
+              That's what this blog is for: shorter, more current pieces that sit alongside our main scheme guides, helping you stay on top of what's actually changing and what it means for you. You can <a href="/schemes/index.html" class="body-link">browse all schemes</a> or <a href="/categories/index.html" class="body-link">browse by category</a> to access individual reference guides across agriculture, health, education, and pensions. Return to <a href="/index.html" class="body-link">Home</a> at any time to explore our interactive eligibility checker.
             </p>
           </section>
 
@@ -372,51 +392,7 @@
             </div>
           </section>
 
-        
-<section class="content-block">
-  <h2>Editorial Board & Fact-Verification Workflow for State Budget Notifications</h2>
-  <p>
-    Maintaining information integrity is our highest operational priority. Our editorial board follows a multi-tier verification process before any article, update, or policy guide is published:
-  </p>
-  <ul>
-    <li><strong>Primary Government Gazette Analysis:</strong> Every financial entitlement change, budget announcement, or scheme revision is verified directly against published Finance Department notifications and official press releases (such as state budget documents from <code>wb.gov.in</code>).</li>
-    <li><strong>Departmental Nodal Portal Audits:</strong> Verification is conducted across dedicated scheme management systems — including <code>krishakbandhu.wb.gov.in</code>, <code>swasthyasathi.gov.in</code>, <code>wbmdfc.org</code>, and <code>oasis.gov.in</code> — to confirm live portal URLs, registration steps, and beneficiary eligibility criteria.</li>
-    <li><strong>Cross-Departmental Verification:</strong> When centrally-sponsored schemes interface with state programmes (such as PM-JAY and Swasthya Sathi or PM-Kisan and Krishak Bandhu), our team audits both central and state guidelines to clarify dual-benefit entitlements for citizens.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Duare Sarkar Camp Outreach & Digital Certificate Integration Guides</h2>
-  <p>
-    A primary focus of our upcoming walkthrough series is demystifying on-ground application channels across West Bengal's 23 districts:
-  </p>
-  <ul>
-    <li><strong>Duare Sarkar Seasonal Schedules:</strong> Operational guides outlining mobile camp phases, Gram Panchayat venue locations, and required document checklists for instant on-site registration.</li>
-    <li><strong>e-District Digital Certificate Workflows:</strong> Step-by-step instructions for obtaining official income, residential, and caste certificates via <code>edistrict.wb.gov.in</code> required across scholarship and housing applications.</li>
-    <li><strong>Direct Benefit Transfer (DBT) Troubleshooting:</strong> Detailed technical guides on Aadhaar-NPCI bank account mapper verification to resolve pending treasury disbursements.</li>
-  </ul>
-</section>
-
-<section class="content-block">
-  <h2>Community Feedback Mechanisms & Reader Corrections</h2>
-  <p>
-    We actively encourage citizen participation to keep our coverage precise and up-to-date across all municipal wards and block offices:
-  </p>
-  <ul>
-    <li><strong>Grassroots Field Reports:</strong> Readers and community volunteers submit ground updates regarding local camp operations, portal server maintenance windows, or district-specific helpline updates.</li>
-    <li><strong>Rapid Fact Correction Protocols:</strong> When official scheme rules or portal URLs change, our editorial team updates published articles within 24 hours and logs revision notes for full public transparency.</li>
-  </ul>
-</section>
-
-
-<section class="content-block">
-  <h2>Multi-Lingual Coverage & Regional Scheme Spotlights</h2>
-  <p>
-    To ensure every family across urban Kolkata, hill districts of Darjeeling and Kalimpong, coastal Sundarbans, and rural Jangalmahal can access vital welfare information, our blog features multi-lingual explainers in Bengali and English. Each spotlight breaks down complex gazette terminology into clear, actionable steps for beneficiaries across every district of West Bengal.
-  </p>
-</section>
-
-</article>
+        </article>
 
       </div>
     </div>
@@ -485,4 +461,8 @@
 
   <script src="/js/main.js" defer></script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(blogHubPath, blogHubHtml, 'utf8');
+const newWordCountBlogHub = getArticleWordCount(blogHubPath);
+console.log(`Page 45 (Blog Hub) Updated: ${oldWordCountBlogHub} words -> ${newWordCountBlogHub} words`);
