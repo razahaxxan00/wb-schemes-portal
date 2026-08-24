@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Categories Dropdown Handler
-  const dropdownToggleBtns = document.querySelectorAll('.dropdown-toggle-btn');
+  const dropdownToggleBtns = document.querySelectorAll('.nav-dropdown-btn, .dropdown-toggle-btn');
   dropdownToggleBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
       if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('open');
-        const btn = dropdown.querySelector('.dropdown-toggle-btn');
+        const btn = dropdown.querySelector('.nav-dropdown-btn, .dropdown-toggle-btn');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       }
     });
