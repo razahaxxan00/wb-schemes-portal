@@ -21,6 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Categories Dropdown Handler
+  const dropdownToggleBtns = document.querySelectorAll('.dropdown-toggle-btn');
+  dropdownToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const parentDropdown = btn.closest('.nav-dropdown');
+      if (parentDropdown) {
+        const isOpen = parentDropdown.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        const btn = dropdown.querySelector('.dropdown-toggle-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
   // 1. FAQ Accordion Functionality with SVG Chevron Rotation
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(question => {
