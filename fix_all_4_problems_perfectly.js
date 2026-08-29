@@ -41,7 +41,7 @@ const schemeNameMap = {
 };
 
 const schemeSummaryMap = {
-  'lakshmir-bhandar': 'Financial aid of Rs 1,000 (General) and Rs 1,200 (SC/ST) monthly for women in West Bengal.',
+  'lakshmir-bhandar': 'Monthly financial support for women (₹1,500 General / ₹1,700 SC-ST previously → ₹3,000/month under Annapurna Bhandar).',
   'swasthya-sathi': 'Rs 5 lakh cashless health insurance per family per year across government and empanelled hospitals.',
   'krishak-bandhu': 'Rs 10,000 annual financial assistance per acre and Rs 2 lakh death assurance for farmers.',
   'kanyashree-prakalpa': 'K1 annual scholarship and K2 one-time grant of Rs 25,000 for unmarried girl students.',
