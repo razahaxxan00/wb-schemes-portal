@@ -1278,3 +1278,29 @@ select:focus, input[type="text"]:focus, input[type="email"]:focus {
     font-size: 13px;
   }
 }
+
+
+/* Scheme Card Overview Spacing & Line Height Enhancements */
+.scheme-card {
+  padding: 28px 24px !important;
+}
+
+.scheme-overview-text {
+  font-size: 0.938rem !important;
+  color: #334155 !important;
+  line-height: 1.75 !important;
+  margin-top: 14px !important;
+  margin-bottom: 18px !important;
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 14px !important;
+  text-align: left !important;
+}
+
+.scheme-overview-text p {
+  margin-bottom: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.scheme-overview-text p:last-child {
+  margin-bottom: 0 !important;
+}
