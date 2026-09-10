@@ -1364,20 +1364,3 @@ select:focus, input[type="text"]:focus, input[type="email"]:focus {
 }
 
 
-/* Read More Jump Link */
-.read-more-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: #0b3c5d;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-top: 10px;
-  margin-bottom: 16px;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-.read-more-link:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
