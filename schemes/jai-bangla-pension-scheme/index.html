@@ -29,6 +29,68 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b3c5d">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9WB5CHM26');
+  </script>
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wb-schemes-portal-three.vercel.app/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SChemes",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Jai Bangla Pension Scheme — West Bengal's Unified Pension Programme",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/jai-bangla-pension-scheme/"
+        }
+    ]
+}
+  </script>
+
+  <!-- FAQ Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Jai Bangla Pension Scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A West Bengal Government umbrella scheme that consolidates old-age, widow, disability, SC/ST, and occupation-based pensions into a single ₹1,000–₹1,500/month programme with one common application process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is eligible for Jai Bangla Pension?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "West Bengal residents who are senior citizens (60+), widows (18+, generally BPL), persons with disabilities, or workers in specific occupational categories like farming, fishing, or textile work, exact conditions vary by sub-scheme."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 

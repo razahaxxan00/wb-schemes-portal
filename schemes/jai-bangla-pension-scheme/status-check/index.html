@@ -29,6 +29,74 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b3c5d">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9WB5CHM26');
+  </script>
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wb-schemes-portal-three.vercel.app/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SChemes",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Jai Bangla Pension SCheme",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/jai-bangla-pension-scheme/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "How to Check Your Jai Bangla Pension Status",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/jai-bangla-pension-scheme/status-check/"
+        }
+    ]
+}
+  </script>
+
+  <!-- FAQ Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "My status shows \"approved\" but I haven't received this month's pension.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Confirm your bank account is Aadhaar-linked and check a few days after the 1st of the month, since that's the usual payment date. If it's still missing after that, visit your BDO/SDO office."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My pension stopped after being regular for months. Why?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is often linked to a re-verification exercise or a change in eligibility (e.g. already receiving another government pension). Visit your local office with your documents to check and correct the record."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 

@@ -29,6 +29,74 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b3c5d">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9WB5CHM26');
+  </script>
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wb-schemes-portal-three.vercel.app/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SChemes",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kanyashree Prakalpa",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/kanyashree-prakalpa/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "কন্যাশ্রী প্রকল্প — বাংলা রচনা ও অনুচ্ছেদ",
+            "item": "https://wb-schemes-portal-three.vercel.app/schemes/kanyashree-prakalpa/kanyashree-prakalpa-in-bengali/"
+        }
+    ]
+}
+  </script>
+
+  <!-- FAQ Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "প্রশ্ন: কন্যাশ্রী প্রকল্প কী?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "উত্তর: এটি পশ্চিমবঙ্গ সরকারের একটি বৃত্তি প্রকল্প, যা কিশোরী মেয়েদের শিক্ষা চালিয়ে যেতে এবং অপ্রাপ্তবয়স্ক বিবাহ রোধে সাহায্য করে।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "প্রশ্ন: কন্যাশ্রী প্রকল্পের জন্য কারা আবেদন করতে পারে?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "উত্তর: পশ্চিমবঙ্গের অবিবাহিত ছাত্রীরা, যারা স্বীকৃত শিক্ষাপ্রতিষ্ঠানে নিয়মিত পড়াশোনা করছে।"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 

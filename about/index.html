@@ -45,6 +45,36 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b3c5d">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9WB5CHM26');
+  </script>
+
+  <!-- Breadcrumb Schema JSON-LD -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wb-schemes-portal-three.vercel.app/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About West Bengal Schemes Portal",
+            "item": "https://wb-schemes-portal-three.vercel.app/about/"
+        }
+    ]
+}
+  </script>
 </head>
 <body>
 
