@@ -14,12 +14,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b3c5d">
-    <!-- Non-blocking Google Analytics (GA4) -->
+      <!-- Zero-Main-Thread-Blocking Google Analytics (GA4) -->
   <script>
-    window.addEventListener('load', function() {
-      var loadGA = function() {
+    (function() {
+      function loadGA() {
         if (window.gaLoaded) return;
         window.gaLoaded = true;
+        var events = ['touchstart', 'scroll', 'mousemove', 'keydown'];
+        events.forEach(function(e) { window.removeEventListener(e, loadGA); });
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26';
@@ -28,13 +30,12 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-G9WB5CHM26');
-      };
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGA, { timeout: 2000 });
-      } else {
-        setTimeout(loadGA, 1500);
       }
-    });
+      var events = ['touchstart', 'scroll', 'mousemove', 'keydown'];
+      events.forEach(function(e) { window.addEventListener(e, loadGA, { passive: true, once: true }); });
+      // Fallback timer for bots/crawlers
+      setTimeout(loadGA, 4000);
+    })();
   </script>
 
   <!-- Breadcrumb Schema JSON-LD -->
