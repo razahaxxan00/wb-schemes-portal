@@ -1,91 +1,92 @@
-// main.js - Interactive functionality & UI Enhancements for West Bengal Schemes Portal
+// main.js - Ultra-Fast, Non-Blocking UI Interactive Logic
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Hamburger Menu Handler
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mainNav = document.querySelector('.main-nav');
+(function() {
+  function initUI() {
+    // Mobile Hamburger Menu
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var mainNav = document.querySelector('.main-nav');
 
-  if (mobileMenuBtn && mainNav) {
-    mobileMenuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mainNav.classList.toggle('active');
-      mobileMenuBtn.classList.toggle('active');
+    if (mobileMenuBtn && mainNav) {
+      mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mainNav.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+    }
+
+    // Categories Dropdown
+    var dropdownBtns = document.querySelectorAll('.nav-dropdown-btn, .dropdown-toggle-btn');
+    dropdownBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var parentDropdown = btn.closest('.nav-dropdown');
+        if (parentDropdown) {
+          var isOpen = parentDropdown.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      });
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mobileMenuBtn.contains(e.target) && !mainNav.contains(e.target)) {
+    // Single Delegated Document Click Handler for Outside Clicks
+    document.addEventListener('click', function(e) {
+      if (mainNav && mobileMenuBtn && !mobileMenuBtn.contains(e.target) && !mainNav.contains(e.target)) {
         mainNav.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
       }
+
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(dropdown) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+          var btn = dropdown.querySelector('.nav-dropdown-btn, .dropdown-toggle-btn');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }, { passive: true });
+
+    // FAQ Accordion
+    var faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(function(question) {
+      question.addEventListener('click', function() {
+        var answer = question.nextElementSibling;
+        var isOpen = answer && answer.style.display === 'block';
+
+        document.querySelectorAll('.faq-answer').forEach(function(item) {
+          item.style.display = 'none';
+        });
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+
+        if (!isOpen && answer) {
+          answer.style.display = 'block';
+          question.classList.add('active');
+        }
+      });
     });
+
+    // Eligibility Checker Widget
+    var findSchemesBtn = document.getElementById('find-schemes-btn');
+    if (findSchemesBtn) {
+      findSchemesBtn.addEventListener('click', function() {
+        var categoryEl = document.getElementById('widget-category');
+        var category = categoryEl ? categoryEl.value : '';
+        var routes = {
+          farmer: '/schemes/farmer-schemes/index.html',
+          student: '/schemes/student-schemes/index.html',
+          women: '/schemes/women-welfare/index.html',
+          senior: '/schemes/senior-citizen-schemes/index.html',
+          pwd: '/schemes/disability-schemes/index.html',
+          minority: '/schemes/minority-schemes/index.html'
+        };
+        window.location.href = routes[category] || '/schemes/index.html';
+      });
+    }
   }
 
-  // Categories Dropdown Handler
-  const dropdownToggleBtns = document.querySelectorAll('.nav-dropdown-btn, .dropdown-toggle-btn');
-  dropdownToggleBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      const parentDropdown = btn.closest('.nav-dropdown');
-      if (parentDropdown) {
-        const isOpen = parentDropdown.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      }
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-        const btn = dropdown.querySelector('.nav-dropdown-btn, .dropdown-toggle-btn');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-
-  // 1. FAQ Accordion Functionality with SVG Chevron Rotation
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-      const answer = question.nextElementSibling;
-      const isOpen = answer && answer.style.display === 'block';
-
-      document.querySelectorAll('.faq-answer').forEach(item => {
-        item.style.display = 'none';
-      });
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      if (!isOpen && answer) {
-        answer.style.display = 'block';
-        question.classList.add('active');
-      }
-    });
-  });
-
-  // 2. Interactive Eligibility Checker Widget Handler (Homepage)
-  const findSchemesBtn = document.getElementById('find-schemes-btn');
-  if (findSchemesBtn) {
-    findSchemesBtn.addEventListener('click', () => {
-      const category = document.getElementById('widget-category').value;
-      if (category === 'farmer') {
-        window.location.href = '/schemes/farmer-schemes/index.html';
-      } else if (category === 'student') {
-        window.location.href = '/schemes/student-schemes/index.html';
-      } else if (category === 'women') {
-        window.location.href = '/schemes/women-welfare/index.html';
-      } else if (category === 'senior') {
-        window.location.href = '/schemes/senior-citizen-schemes/index.html';
-      } else if (category === 'pwd') {
-        window.location.href = '/schemes/disability-schemes/index.html';
-      } else if (category === 'minority') {
-        window.location.href = '/schemes/minority-schemes/index.html';
-      } else {
-        window.location.href = '/schemes/index.html';
-      }
-    });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUI);
+  } else {
+    initUI();
   }
-});
+})();
