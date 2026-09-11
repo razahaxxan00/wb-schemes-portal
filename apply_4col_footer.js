@@ -222,7 +222,7 @@ const master4ColFooter = `  <!-- Footer -->
             Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
           </p>
           <div class="footer-contact-block">
-            <div class="footer-contact-item">📧 <span>contact@wbschemes-example.in</span></div>
+            <div class="footer-contact-item">📧 <span>contact@wbschemes.com</span></div>
             <div class="footer-contact-item">📞 <span>1800-123-4567 (Toll Free Helpline)</span></div>
           </div>
           <div class="footer-social-row">
