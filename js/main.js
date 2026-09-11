@@ -84,6 +84,39 @@
     }
   }
 
+
+    // Contact Form Handling logic
+    var contactForm = document.getElementById('contactForm');
+    var successAlert = document.getElementById('contact-success-alert');
+    var errorAlert = document.getElementById('contact-error-alert');
+    var sendAnotherBtn = document.getElementById('send-another-btn');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var submitBtn = document.getElementById('contact-submit-btn');
+        if (submitBtn) submitBtn.disabled = true;
+
+        setTimeout(function() {
+          if (contactForm) contactForm.style.display = 'none';
+          if (errorAlert) errorAlert.style.display = 'none';
+          if (successAlert) successAlert.style.display = 'block';
+          if (submitBtn) submitBtn.disabled = false;
+        }, 300);
+      });
+    }
+
+    if (sendAnotherBtn) {
+      sendAnotherBtn.addEventListener('click', function() {
+        if (contactForm) {
+          contactForm.reset();
+          contactForm.style.display = 'block';
+        }
+        if (successAlert) successAlert.style.display = 'none';
+      });
+    }
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initUI);
   } else {
