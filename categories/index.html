@@ -1,47 +1,345 @@
-<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>West Bengal Scheme Categories — Browse by Sector</title>  <meta name="description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more. Read more.">  <link rel="stylesheet" href="/css/styles.css">  <noscript></noscript>  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/categories/">  <meta name="robots" content="index, follow">  <!-- Open Graph / Social Media -->  <meta property="og:title" content="West Bengal Scheme Categories: Browse by Sector">  <meta property="og:description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more.">  <meta property="og:type" content="website">  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/categories">  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">  <!-- Twitter Card -->  <meta name="twitter:card" content="summary_large_image">  <meta name="twitter:title" content="West Bengal Scheme Categories: Browse by Sector">  <meta name="twitter:description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more.">  <link rel="icon" type="image/x-icon" href="/favicon.ico">  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">  <link rel="manifest" href="/site.webmanifest">  <meta name="theme-color" content="#0b3c5d">      <!-- Zero-Main-Thread-Blocking Google Analytics (GA4) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>West Bengal Scheme Categories — Browse by Sector</title>
+  <meta name="description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more. Read more.">
+  <meta name="keywords" content="west bengal scheme categories, wb schemes directory, browse West Bengal schemes by sector">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="canonical" href="https://wb-schemes-portal-three.vercel.app/categories/index.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="West Bengal Scheme Categories: Browse by Sector">
+  <meta property="og:description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wb-schemes-portal-three.vercel.app/categories/index.html">
+  <meta property="og:image" content="https://wb-schemes-portal-three.vercel.app/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="West Bengal Scheme Categories: Browse by Sector">
+  <meta name="twitter:description" content="Browse West Bengal Government schemes by category: Social Welfare, Women, Farmers, Students, Scholarships, Pensions, Housing, Health, and more.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b3c5d">
+  <!-- Zero-Main-Thread-Blocking Google Analytics (GA4) -->
   <script>
     (function() {
       function loadGA() {
         if (window.gaLoaded) return;
         window.gaLoaded = true;
-        var events = ['touchstart', 'scroll', 'mousemove', 'keydown'];
-        events.forEach(function(e) { window.removeEventListener(e, loadGA); });
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-G9WB5CHM26';
-        document.head.appendChild(s);
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-H15EE43L6R';
+        document.head.appendChild(script);
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
         gtag('js', new Date());
-        gtag('config', 'G-G9WB5CHM26');
+        gtag('config', 'G-H15EE43L6R');
       }
-      var events = ['touchstart', 'scroll', 'mousemove', 'keydown'];
-      events.forEach(function(e) { window.addEventListener(e, loadGA, { passive: true, once: true }); });
-      // Fallback timer for bots/crawlers
+      var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+      function triggerGA() {
+        loadGA();
+        events.forEach(function(e) { window.removeEventListener(e, triggerGA); });
+      }
+      events.forEach(function(e) { window.addEventListener(e, triggerGA, {passive: true}); });
       setTimeout(loadGA, 4000);
     })();
   </script>
-  <!-- Breadcrumb Schema JSON-LD -->
-  <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://wb-schemes-portal-three.vercel.app/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Browse Schemes by Category",
-            "item": "https://wb-schemes-portal-three.vercel.app/categories/"
-        }
-    ]
-}
-  </script>
-</head><body>  <!-- Header -->  <header class="site-header">    <div class="top-bar">      <div class="container">        <span>Independent Public Information Guide</span>        <span>West Bengal Welfare Schemes Directory 2026</span>      </div>    </div>    <div class="header-main">      <div class="container">        <a href="/index.html" class="brand-logo">          <div class="emblem-placeholder">WB</div>          <div class="brand-text"><span>West Bengal Schemes Portal</span>            <p>Public Guide for State Welfare Initiatives</p>          </div>        </a>        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">          <span class="hamburger-bar"></span>          <span class="hamburger-bar"></span>          <span class="hamburger-bar"></span>        </button>        <nav class="main-nav">          <a href="/index.html" class="body-link">Home</a>          <a href="/schemes/index.html" class="body-link">All Schemes</a>          <div class="nav-dropdown">            <button type="button" class="nav-dropdown-btn" aria-label="Toggle Categories Menu" aria-expanded="false">              <span>Categories</span>              <svg class="dropdown-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">                <path d="M6 9l6 6 6-6"/> </svg> </button> <div class="dropdown-menu"> <a href="/schemes/social-welfare/index.html" class="dropdown-item">Social Welfare Schemes</a> <a href="/schemes/women-welfare/index.html" class="dropdown-item">Women Welfare Schemes</a> <a href="/schemes/farmer-schemes/index.html" class="dropdown-item">Farmer Schemes</a> <a href="/schemes/student-schemes/index.html" class="dropdown-item">Student Schemes</a> <a href="/schemes/scholarship-schemes/index.html" class="dropdown-item">Scholarship Schemes</a> <a href="/schemes/pension-schemes/index.html" class="dropdown-item">Pension Schemes</a> <a href="/schemes/housing-schemes/index.html" class="dropdown-item">Housing Schemes</a> <a href="/schemes/health-schemes/index.html" class="dropdown-item">Health Schemes</a> <a href="/schemes/employment-schemes/index.html" class="dropdown-item">Employment Schemes</a> <a href="/schemes/minority-schemes/index.html" class="dropdown-item">Minority Schemes</a> <a href="/schemes/disability-schemes/index.html" class="dropdown-item">Disability Schemes</a> <a href="/schemes/senior-citizen-schemes/index.html" class="dropdown-item">Senior Citizen Schemes</a> <a href="/schemes/child-welfare-schemes/index.html" class="dropdown-item">Child Welfare Schemes</a> </div> </div> <a href="/blog/index.html" class="body-link">Blogs</a> <a href="/about/index.html" class="body-link">About Us</a>
-          <a href="/contact/index.html" class="body-link">Contact Us</a> </nav> </div> </div> </header> <!-- Breadcrumbs --> <div class="breadcrumb-section"> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb"> <a href="/index.html" class="breadcrumb-link">Home</a> <span class="separator">/</span> <span class="current">Categories</span> </nav> </div> </div> <!-- Main Content Layout --> <main class="page-layout"> <div class="container"> <div class="scheme-hero" style="margin-bottom: 32px;"> <span class="scheme-badge">Categories Directory</span> <h1>Browse Schemes by Category</h1> <p class="intro-text"> Find government welfare schemes organized by sector and beneficiary group. </p>
-            <a href="#scheme-categories" class="read-more-link">Read more &rarr;</a>      </div>      <div class="content-block">        <h2 id="scheme-categories">Scheme Categories</h2>        <div class="scheme-grid">          <a href="/schemes/social-welfare/index.html" class="category-card">          <div class="category-icon" style="background: rgba(11, 60, 93, 0.1); color: #0b3c5d;">⚖️</div>          <div class="category-info">            <h3 class="category-title">Social Welfare Schemes</h3>            <p class="category-desc">Comprehensive list of pensions, housing, food security & welfare grants.</p>          </div>        </a>          <a href="/schemes/women-welfare/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div> <div class="category-info"> <h3 class="category-title">Women Welfare Schemes</h3> <p class="category-desc">Lakshmir Bhandar, Kanyashree, Rupashree, and women empowerment schemes.</p>          </div>        </a>          <a href="/schemes/farmer-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 20a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-4-2.5-4-2.5m0 15a7 7 0 0 1-7-7c0-2 1-3.9 3-5.5s4-2.5 4-2.5"/></svg></div> <div class="category-info"> <h3 class="category-title">Farmer Schemes</h3> <p class="category-desc">Krishak Bandhu financial support & Bangla Shasya Bima crop insurance.</p>          </div>        </a>          <a href="/schemes/student-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div> <div class="category-info"> <h3 class="category-title">Student Schemes</h3> <p class="category-desc">Sabooj Sathi bicycles, Kanyashree, Shikshashree, and student benefits.</p>          </div>        </a>          <a href="/schemes/scholarship-schemes/index.html" class="category-card">          <div class="category-icon" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">📘</div>          <div class="category-info">            <h3 class="category-title">Scholarship Schemes</h3>            <p class="category-desc">Pre-Matric, Post-Matric, and MCM scholarships for all categories.</p>          </div>        </a>          <a href="/schemes/pension-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div> <div class="category-info"> <h3 class="category-title">Pension Schemes</h3> <p class="category-desc">Jai Bangla Pension Scheme, Manabik Pension Scheme, and old-age support.</p>          </div>        </a>          <a href="/schemes/housing-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div> <div class="category-info"> <h3 class="category-title">Housing Schemes</h3> <p class="category-desc">Banglar Bari Prakalpa and Geetanjali Housing Scheme for EWS families.</p>          </div>        </a>          <a href="/schemes/health-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div> <div class="category-info"> <h3 class="category-title">Health Schemes</h3> <p class="category-desc">Swasthya Sathi cashless health insurance & Ayushman Bharat updates.</p>          </div>        </a>          <a href="/schemes/employment-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div> <div class="category-info"> <h3 class="category-title">Employment Schemes</h3> <p class="category-desc">Utkarsh Bangla free skill development & placement-linked training.</p>          </div>        </a>          <a href="/schemes/minority-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div> <div class="category-info"> <h3 class="category-title">Minority Schemes</h3> <p class="category-desc">Aikyashree scholarship and welfare grants for minority students.</p>          </div>        </a>          <a href="/schemes/disability-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div> <div class="category-info"> <h3 class="category-title">Disability Schemes</h3> <p class="category-desc">Manabik Pension Scheme for persons with certified disabilities.</p>          </div>        </a>          <a href="/schemes/senior-citizen-schemes/index.html" class="category-card">          <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div> <div class="category-info"> <h3 class="category-title">Senior Citizen Schemes</h3> <p class="category-desc">Pensions and financial assistance for elderly residents.</p>          </div>        </a>          <a href="/schemes/child-welfare-schemes/index.html" class="category-card">          <div class="category-icon" style="background: rgba(16, 185, 129, 0.1); color: #059669;">🧒</div>          <div class="category-info">            <h3 class="category-title">Child Welfare Schemes</h3>            <p class="category-desc">Education, health, and welfare support for children in West Bengal.</p>          </div>        </a>        </div>      </div>    </div>  </main>  <!-- Footer -->    <!-- Footer -->    <!-- Footer -->    <!-- Footer -->    <!-- Footer -->    <!-- Footer -->  <footer class="site-footer">    <div class="container">      <div class="footer-grid">        <!-- Col 1: Brand & Short Tagline -->        <div class="footer-col">          <div class="footer-brand-title">            <div class="footer-brand-emblem">WB</div>            <span>WB Schemes Portal</span>          </div>          <p class="disclaimer-text"> Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives. </p>        </div>        <!-- Col 2: Explore -->        <div class="footer-col">          <h3>Explore</h3>          <ul>            <li><a href="/index.html" class="footer-link">Home</a></li>            <li><a href="/schemes/index.html" class="footer-link">All Schemes List</a></li>            <li><a href="/categories/index.html" class="footer-link">Scheme Categories</a></li>          </ul>        </div>        <!-- Col 3: Quick Links -->        <div class="footer-col">          <h3>Quick Links</h3>          <ul>            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">Status Check Guides</a></li>            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">E-Card Downloads</a></li>            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">Application Forms</a></li>          </ul>        </div>        <!-- Col 4: Legal -->        <div class="footer-col">          <h3>Legal</h3>          <ul>            <li><a href="/about/index.html" class="footer-link">About Us</a></li>            <li><a href="/blog/index.html" class="footer-link">Blogs</a></li>            <li><a href="/disclaimer/index.html" class="footer-link">Official Disclaimer</a></li>            <li><a href="/privacy-policy/index.html" class="footer-link">Privacy Policy</a></li>            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">Official WB Portal →</a></li>          </ul>        </div>      </div>      <!-- Footer Bottom Bar -->      <div class="footer-bottom">        <p>&copy; 2026 WB Schemes Portal &middot; Independent public information guide. Not an official Government of West Bengal website.</p>        <div class="footer-bottom-links">          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>          <a class="body-link" href="/blog/index.html">Blogs</a>        </div>      </div>    </div>  </footer></body></html>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-emblem">WB</div>
+        <div class="logo-text">
+          <span class="logo-title">WB Schemes Portal</span>
+          <span class="logo-subtitle">Public Information Resource</span>
+        </div>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-icon"></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/schemes/index.html" class="nav-link">All Schemes</a></li>
+          <li><a href="/categories/index.html" class="nav-link active">Categories</a></li>
+          <li><a href="/blog/index.html" class="nav-link">Blogs</a></li>
+          <li><a href="/about/index.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="/index.html">Home</a></li>
+        <li aria-current="page">Categories</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Content Layout -->
+  <main class="page-layout">
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="scheme-hero" style="margin-bottom: 32px;">
+        <span class="scheme-badge">Categories Directory</span>
+        <h1>Browse Schemes by Category</h1>
+        <p class="intro-text">
+          West Bengal runs dozens of welfare schemes across very different areas of life, from farming and food security to student scholarships and senior citizen pensions. Rather than browsing a single long list, this page organises every scheme we cover into 13 categories, so you can go straight to the group of schemes relevant to your situation.
+        </p>
+      </div>
+
+      <!-- Section: How These Categories Are Organised -->
+      <section class="content-block">
+        <h2>How These Categories Are Organised</h2>
+        <p>Each category below groups schemes by the primary beneficiary group or purpose they serve, not by which government department runs them (since a single beneficiary group, like farmers or students, is often served by schemes from different departments working toward a shared goal). This is meant to match how people actually search and think about their situation: as a farmer looking for support, a parent looking for scholarships for a daughter, or a senior citizen looking for pension options, rather than needing to know the exact department name first.</p>
+      </section>
+
+      <!-- Section: The 13 Categories Overview -->
+      <section class="content-block">
+        <h2>The 13 Categories</h2>
+        <ul>
+          <li><strong>Social Welfare Schemes</strong> — general welfare, food security, and cross-cutting support programmes</li>
+          <li><strong>Women Welfare Schemes</strong> — direct financial assistance and empowerment programmes for women</li>
+          <li><strong>Farmer Schemes</strong> — income support and crop insurance for the agricultural community</li>
+          <li><strong>Student Schemes</strong> — bicycles, uniforms, and general educational support (distinct from scholarship-specific programmes)</li>
+          <li><strong>Scholarship Schemes</strong> — Pre-Matric, Post-Matric, and Merit-cum-Means scholarships across communities</li>
+          <li><strong>Pension Schemes</strong> — old-age, widow, disability, and occupation-based monthly pensions</li>
+          <li><strong>Housing Schemes</strong> — construction assistance for families without a permanent home</li>
+          <li><strong>Health Schemes</strong> — cashless health coverage and hospital treatment support</li>
+          <li><strong>Employment Schemes</strong> — skill development and job-readiness training</li>
+          <li><strong>Minority Schemes</strong> — scholarships and welfare support for notified minority communities</li>
+          <li><strong>Disability Schemes</strong> — pension and support programmes for persons with disabilities</li>
+          <li><strong>Senior Citizen Schemes</strong> — pension and welfare programmes specifically for the elderly</li>
+          <li><strong>Child Welfare Schemes</strong> — education, nutrition, and protection programmes for children</li>
+        </ul>
+      </section>
+
+      <!-- Category Grid Container -->
+      <section class="content-block" id="scheme-categories">
+        <h2>Explore Scheme Categories</h2>
+        <div class="scheme-grid">
+          <a href="/schemes/social-welfare/index.html" class="category-card">
+            <div class="category-icon" style="background: rgba(11, 60, 93, 0.1); color: #0b3c5d;">⚖️</div>
+            <div class="category-info">
+              <h3 class="category-title">Social Welfare Schemes</h3>
+              <p class="category-desc">Comprehensive list of pensions, housing, food security & welfare grants.</p>
+            </div>
+          </a>
+          <a href="/schemes/women-welfare/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Women Welfare Schemes</h3>
+              <p class="category-desc">Lakshmir Bhandar, Kanyashree, Rupashree, and women empowerment schemes.</p>
+            </div>
+          </a>
+          <a href="/schemes/farmer-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 20a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-4-2.5-4-2.5m0 15a7 7 0 0 1-7-7c0-2 1-3.9 3-5.5s4-2.5 4-2.5"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Farmer Schemes</h3>
+              <p class="category-desc">Krishak Bandhu financial support & Bangla Shasya Bima crop insurance.</p>
+            </div>
+          </a>
+          <a href="/schemes/student-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Student Schemes</h3>
+              <p class="category-desc">Sabooj Sathi bicycles, Kanyashree, Shikshashree, and student benefits.</p>
+            </div>
+          </a>
+          <a href="/schemes/scholarship-schemes/index.html" class="category-card">
+            <div class="category-icon" style="background: rgba(245, 158, 11, 0.1); color: #d97706;">📘</div>
+            <div class="category-info">
+              <h3 class="category-title">Scholarship Schemes</h3>
+              <p class="category-desc">Pre-Matric, Post-Matric, and MCM scholarships for all categories.</p>
+            </div>
+          </a>
+          <a href="/schemes/pension-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Pension Schemes</h3>
+              <p class="category-desc">Jai Bangla Pension Scheme, Manabik Pension Scheme, and old-age support.</p>
+            </div>
+          </a>
+          <a href="/schemes/housing-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Housing Schemes</h3>
+              <p class="category-desc">Banglar Bari Prakalpa and Geetanjali Housing Scheme for EWS families.</p>
+            </div>
+          </a>
+          <a href="/schemes/health-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Health Schemes</h3>
+              <p class="category-desc">Swasthya Sathi cashless health insurance & Ayushman Bharat updates.</p>
+            </div>
+          </a>
+          <a href="/schemes/employment-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Employment Schemes</h3>
+              <p class="category-desc">Utkarsh Bangla free skill development & placement-linked training.</p>
+            </div>
+          </a>
+          <a href="/schemes/minority-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Minority Schemes</h3>
+              <p class="category-desc">Aikyashree scholarship and welfare grants for minority students.</p>
+            </div>
+          </a>
+          <a href="/schemes/disability-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Disability Schemes</h3>
+              <p class="category-desc">Manabik Pension Scheme for persons with certified disabilities.</p>
+            </div>
+          </a>
+          <a href="/schemes/senior-citizen-schemes/index.html" class="category-card">
+            <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="category-info">
+              <h3 class="category-title">Senior Citizen Schemes</h3>
+              <p class="category-desc">Pensions and financial assistance for elderly residents.</p>
+            </div>
+          </a>
+          <a href="/schemes/child-welfare-schemes/index.html" class="category-card">
+            <div class="category-icon" style="background: rgba(16, 185, 129, 0.1); color: #059669;">🧒</div>
+            <div class="category-info">
+              <h3 class="category-title">Child Welfare Schemes</h3>
+              <p class="category-desc">Education, health, and welfare support for children in West Bengal.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Section: Finding the Right Category When You're Not Sure -->
+      <section class="content-block">
+        <h2>Finding the Right Category When You're Not Sure</h2>
+        <p>Some situations fit more than one category naturally, for example, a scheme for girls' education could reasonably sit under Student Schemes, Scholarship Schemes, or Child Welfare Schemes. Where this overlap exists, we've placed the scheme in the category that best matches its primary purpose, and cross-referenced it in Related Schemes sections on other relevant pages, so you're likely to find it either way.</p>
+        <p>If you're still not sure which category fits your situation, the quickest route is often the homepage's eligibility checker, which asks about your beneficiary type, district, and income level, and surfaces relevant schemes directly without needing to browse by category first.</p>
+      </section>
+
+      <!-- Section: What Each Category Page Contains -->
+      <section class="content-block">
+        <h2>What Each Category Page Contains</h2>
+        <p>Every category hub page lists all the active schemes within that group, each with a short summary and a direct link through to the full guide covering eligibility, benefits, and how to apply. If a scheme has multiple related pages (like a separate status-check or application guide), those are accessible from within that scheme's own Main Scheme Page rather than cluttering the category-level listing.</p>
+      </section>
+
+      <!-- Section: Categories We're Still Expanding -->
+      <section class="content-block">
+        <h2>Categories We're Still Expanding</h2>
+        <p>Some categories currently list fewer schemes than others, reflecting either a genuinely smaller number of active state schemes in that area, or pages we're still actively researching and adding. We prioritise covering schemes by search demand and public interest, so widely-used schemes get comprehensive guides first, with smaller or newer schemes added over time.</p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="content-block">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do I know which category my situation falls under?</span>
+              <svg class="faq-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" style="display: none;">
+              <p>Browse the category names above for the closest match to your situation (farmer, student, senior citizen, etc.), or use the homepage's eligibility checker if you're unsure.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What if a scheme could fit more than one category?</span>
+              <svg class="faq-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" style="display: none;">
+              <p>We place it under its primary purpose and cross-link it from Related Schemes sections on other relevant category pages, so it's still reachable from multiple angles.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Are all 13 categories equally comprehensive?</span>
+              <svg class="faq-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" style="display: none;">
+              <p>Coverage varies by category based on the number of active schemes and how much we've researched so far, we prioritise high-demand schemes first and continue expanding smaller categories over time.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I search for a specific scheme by name instead of browsing categories?</span>
+              <svg class="faq-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" style="display: none;">
+              <p>Yes, use the search bar in the site header, or check the All Schemes directory page for a complete alphabetical-style listing of every scheme we cover.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Short Tagline -->
+        <div class="footer-col">
+          <div class="footer-brand-title">
+            <div class="footer-brand-emblem">WB</div>
+            <span>WB Schemes Portal</span>
+          </div>
+          <p class="disclaimer-text">
+            Independent public information portal dedicated to raising awareness about Government of West Bengal welfare initiatives.
+          </p>
+        </div>
+        <!-- Col 2: Explore -->
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/index.html" class="footer-link">Home</a></li>
+            <li><a href="/schemes/index.html" class="footer-link">All Schemes List</a></li>
+            <li><a href="/categories/index.html" class="footer-link">Scheme Categories</a></li>
+          </ul>
+        </div>
+        <!-- Col 3: Quick Links -->
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/schemes/lakshmir-bhandar/status-check/index.html" class="footer-link">Status Check Guides</a></li>
+            <li><a href="/schemes/swasthya-sathi/card-download/index.html" class="footer-link">E-Card Downloads</a></li>
+            <li><a href="/schemes/krishak-bandhu/apply-form/index.html" class="footer-link">Application Forms</a></li>
+          </ul>
+        </div>
+        <!-- Col 4: Legal -->
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/about/index.html" class="footer-link">About Us</a></li>
+            <li><a href="/blog/index.html" class="footer-link">Blogs</a></li>
+            <li><a href="/disclaimer/index.html" class="footer-link">Official Disclaimer</a></li>
+            <li><a href="/privacy-policy/index.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="https://wb.gov.in" class="footer-disclaimer-link" target="_blank" rel="noopener noreferrer">Official WB Portal →</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 WB Schemes Portal &middot; Independent public information guide. Not an official Government of West Bengal website.</p>
+        <div class="footer-bottom-links">
+          <a class="body-link" href="/disclaimer/index.html">Disclaimer</a>
+          <a class="body-link" href="/privacy-policy/index.html">Privacy Policy</a>
+          <a class="body-link" href="/blog/index.html">Blogs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
